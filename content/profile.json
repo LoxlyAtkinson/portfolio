@@ -1,0 +1,131 @@
+{
+  "name": "Loxly Atkinson",
+  "role": "Independent AI systems builder",
+  "practice": "Smart AI Solutions",
+  "location": "Cape Town, South Africa",
+  "email": "loxly@smartaisolutions.co.za",
+  "linkedin": "https://linkedin.com/in/loxly-atkinson-b1132a125",
+  "linkedinLabel": "linkedin.com/in/loxly-atkinson",
+  "languages": "English and Afrikaans, both fluent",
+
+  "headline": "I build the systems, then I put them in front of real users and watch what breaks.",
+
+  "intro": [
+    "I scope, build, deploy and maintain production software on my own. Not prototypes and not decks. Fifteen of the systems below are running right now at addresses you can open in a new tab, and every number on this site is counted from source you could count yourself.",
+    "Before I wrote a line of AI code I spent seven years on the commercial side of South African tech, four at an ICT distributor and three selling and implementing point of sale systems into the retail trade. That is the part most of this industry does not have. I have sat across the table from the people who end up using the software."
+  ],
+
+  "quote": "I ship live infrastructure, not decks. I sell what I can build, which is why my scopes hold.",
+
+  "ledger": [
+    { "value": "15", "label": "systems live right now", "note": "every URL on this page returned HTTP 200 on 17 September 2026" },
+    { "value": "19", "label": "sectors shipped into", "note": "radio, unions, healthcare, risk advisory, retail tech, telecoms and more" },
+    { "value": "13", "label": "years in South African tech", "note": "seven commercial, six building" },
+    { "value": "1", "label": "person on every build", "note": "design, database, backend, frontend, deploy and support" }
+  ],
+
+  "howIWork": {
+    "intro": "The work below is ordinary application software. What is not ordinary is the amount of effort that goes into proving it actually works, because most of my production incidents have come from believing something shipped when it had not.",
+    "items": [
+      {
+        "heading": "A green build is not a deploy",
+        "body": "One client deploy reported success and left a ten day old homepage serving. So the pipeline for that project now has twenty five gates, and every gate names the specific recorded failure it exists to prevent. Gate twenty one fetches the live homepage, reads the bundle hash out of it, refetches that chunk and sha256 compares it against what was just built. The pipeline correctly refused to deploy on two of its first real runs."
+      },
+      {
+        "heading": "A passing test is not a working screen",
+        "body": "Across one platform there are 224 proof harnesses among 320 scripts, under a house rule that a user facing change is finished only when it has been observed working in a real browser. On my own site the proof checklist gets written before the screenshot is taken, not after. The last one scored itself five out of nine and listed four explicit failures rather than rounding up."
+      },
+      {
+        "heading": "Postgres, written by hand",
+        "body": "224 hand written migrations across one project, 35,653 lines of SQL and no ORM. 237 row level security policies, 265 indexes, 211 functions, 166 of them PL/pgSQL. An independent reviewer put the SQL at strong advanced applied Postgres, around seven out of ten, and noted only one recursive CTE in 35,000 lines and no EXPLAIN anywhere. That is a fair reading and I would rather print it than a self awarded grade."
+      },
+      {
+        "heading": "Write down what went wrong",
+        "body": "Four of these projects carry written engineering post mortems, indexed and categorised: 755, 457, 306 and 205 of them. They exist because the same mistake made twice is the expensive one. One blind design re audit caught three of its own earlier fixes being wrong, including a background colour that silently voided a whole palette conversion while still compiling cleanly."
+      }
+    ]
+  },
+
+  "notClaimed": {
+    "intro": "A portfolio is an argument, and an argument is only worth as much as the things it refuses to say. These are the boundaries.",
+    "items": [
+      "I have no degree and no diploma. South Cape College certificates, then everything since has been self directed.",
+      "I have never managed engineers. The one people leadership role on my record was a commercial team at an ICT distributor, not a technical one.",
+      "Every client here is South African. I have not worked with a client in the UK, Europe, the Middle East, the Americas or APAC.",
+      "There are no usage figures, revenue figures, time saved figures or percentage improvements anywhere on this site, for any client, because none has been measured. One real usage number exists and it is on the Eden FM page.",
+      "There are no testimonials here. I do not have any on file, and I am not going to write my own.",
+      "No store, cart or checkout has shipped as a client case study. Sublify's commerce layer is built and currently parked. Its front end is live."
+    ]
+  },
+
+  "career": [
+    {
+      "period": "April 2020 to present",
+      "title": "Independent AI systems builder",
+      "org": "Smart AI Solutions, solo consulting practice",
+      "place": "Cape Town, remote first",
+      "body": "Hands on across every deliverable for nine or more live client systems. Custom CRMs and WhatsApp platforms on Supabase and Postgres, AI document and conversation pipelines on Gemini, Claude and OpenAI, full stack builds in TypeScript, React, Astro, Next, Laravel and Python. Scoping, pricing, building, deploying and supporting, all of it personally. Every client won cold, with no inherited book and no inbound."
+    },
+    {
+      "period": "May 2017 to March 2020",
+      "title": "Business Development Manager",
+      "org": "IQ Retail, point of sale division",
+      "place": "Stellenbosch",
+      "body": "Multi client technical implementations and rollouts across the reseller and partner channel, plus technical training and enablement. Configuration across many client environments, working inside retailers' financial and stock data daily. Three years of watching where the software stopped and the pain started."
+    },
+    {
+      "period": "April 2013 to March 2017",
+      "title": "Regional Manager",
+      "org": "Corex Partnertech, ICT distributor",
+      "place": "South Africa",
+      "body": "Two promotions over four years, working with resellers, service providers and managed service providers. This was a commercial team, not an engineering one."
+    }
+  ],
+
+  "education": [
+    { "what": "South Cape College", "detail": "Cisco, Java, A+ Certification" },
+    { "what": "VOIP Training", "detail": "ICTGlobe, IQ Retail partner" },
+    { "what": "Leadership Development", "detail": "Corex Partnertech" },
+    { "what": "AI tooling, self directed", "detail": "Claude and Claude Code, Gemini, OpenAI API, in daily production use" }
+  ],
+
+  "capabilities": [
+    { "group": "Languages", "items": ["TypeScript", "JavaScript", "Python", "PHP", "SQL", "C#"] },
+    { "group": "Frontend", "items": ["React 18 and 19", "Astro", "Next.js", "Vite", "Tailwind CSS", "shadcn/ui and Radix", "TanStack Query", "GSAP"] },
+    { "group": "Backend and data", "items": ["Postgres", "Supabase", "Deno edge functions", "Laravel 12", "Express", "SQLite", "MariaDB", "row level security", "pgvector"] },
+    { "group": "AI", "items": ["Google Gemini", "Anthropic Claude", "OpenAI", "ElevenLabs", "Model Context Protocol", "OpenVINO", "on device extraction fallbacks"] },
+    { "group": "Messaging", "items": ["WhatsApp Cloud API", "2Chat", "Unipile", "transactional email", "IMAP capture"] },
+    { "group": "Verification", "items": ["Playwright", "Vitest", "PHPUnit and Pest", "Chrome DevTools protocol", "byte identity deploy proofs"] },
+    { "group": "Payments and ops", "items": ["PayFast", "Clerk", "Netlify", "Supabase CLI", "shared hosting and SSH deploys", "cron and scheduled functions"] }
+  ],
+
+  "alsoShipped": {
+    "intro": "Shorter engagements and supporting work. Everything marked live returned HTTP 200 on 17 September 2026.",
+    "items": [
+      { "name": "TimeWorks Point of Sale", "sector": "Retail technology", "url": "https://timeworksdata.co.za/", "urlLabel": "timeworksdata.co.za", "body": "A 208 page programmatic local search site across 21 Western Cape locations, 10 industries, 10 products and 10 integrations, plus a separate PHP and MariaDB support ticket portal with SLA windows, rate limiting and an outbox sweeper." },
+      { "name": "CT Communications and Maintenance", "sector": "Telecoms infrastructure", "url": "https://ctcommunications.co.za/", "urlLabel": "ctcommunications.co.za", "body": "124 pages behind a self hosted visual CMS that is a real 1,913 line Express application with helmet, rate limiting, bcrypt, DOMPurify sanitisation and Sharp, driving a seven tab admin dashboard. 106 of 106 published routes verified." },
+      { "name": "Pandora Data Services", "sector": "Managed IT", "url": "https://pandoradataservices.co.za/", "urlLabel": "pandoradataservices.co.za", "body": "Next.js with 24 authored city by service landing pages behind an explicit thin content gate that refuses to generate a combination without a genuinely authored local angle and two city specific questions. Carries a written honesty policy forbidding fabricated clients and certifications." },
+      { "name": "Ekantik Consulting", "sector": "Professional services", "url": "https://ekantikconsulting.com/", "urlLabel": "ekantikconsulting.com", "body": "27 page components including 10 service pages, plus a custom owner editable CMS built rather than bought, on PHP and SQLite, with inline in page editing, first party booking slots, reminders, transactional email and media upload." },
+      { "name": "Sublify", "sector": "Custom printing", "url": "https://sublify.co.za/", "urlLabel": "sublify.co.za", "body": "49 routes, 32 public and 16 admin screens, 11 migrations and nine route shaped Playwright suites. The prerendered front end is serving. The commerce and CMS layer is built and currently parked, which is the honest position." },
+      { "name": "EarthBound MCC", "sector": "Community club", "url": "https://earthboundmcc.co.za/", "urlLabel": "earthboundmcc.co.za", "body": "A scroll driven cinematic single page site whose engine preloads 192 WebP frames behind a percentage loader and paints them to a fixed full viewport canvas across a 900vh scroll, with smooth scroll and parallax bands." },
+      { "name": "Computer Complex", "sector": "IT services, Johannesburg", "url": "https://computercomplex.co.za/", "urlLabel": "computercomplex.co.za", "body": "Roughly 2,400 lines of hand written HTML, CSS and JavaScript. No framework and no build step, own media captured for the build, and a scripted deploy that has since been generalised and reused." },
+      { "name": "Comcen AI NLA", "sector": "Retail business intelligence", "url": "", "urlLabel": "Client engagement, not public", "body": "A multi tenant semantic business intelligence layer over an ERP, with 24 routes, 61 components, 21 API routers and 54 service modules, governed by one design rule that separates what a question means from what the number is." },
+      { "name": "On premise perimeter monitoring", "sector": "Physical security", "url": "", "urlLabel": "Client engagement, not public", "body": "An appliance doing RTSP ingest with MegaDetector v6 on OpenVINO, a two tier event decision, an append only alert journal and a browser dashboard, plus a 61 screen platform information architecture across three tenant tiers. The siren relay is simulated and the alert delivery has never run live. Neither is claimed." },
+      { "name": "Chat2DB", "sector": "Developer tooling", "url": "", "urlLabel": "Own product, not deployed", "body": "A four project .NET solution with 11 API controllers and a React front end that turns natural language questions into SQL against SQL Server, MySQL, Postgres and SQLite. Its knowledge graph and vector search are disabled in source and are not claimed as shipped." },
+      { "name": "AI Outreach CRM", "sector": "Sales automation", "url": "", "urlLabel": "Own product, not deployed", "body": "A Flask and SQLite outreach CRM whose LinkedIn channel was migrated off browser automation onto an API, with safe send pacing, a warmup ramp, reply detection and follow up scheduling. 61 of 61 tests green and 142 routes on boot." },
+      { "name": "Alfred", "sector": "Personal automation", "url": "", "urlLabel": "Own product, not deployed", "body": "A Next.js platform with 40 API routes, 64 service modules, 35 cron jobs and 29 skill packs, notable mostly for written escalation rules that require asking a human before any spend over R500, before publishing anything publicly, before deleting records and before touching production." }
+    ]
+  },
+
+  "published": {
+    "intro": "Client facing documents and presentations I wrote and published. All live.",
+    "items": [
+      { "name": "Smart AI Solutions company and services profile", "url": "https://loxlyatkinson.github.io/smart-ai-solutions-brochure/" },
+      { "name": "NAPTOSA member journey presentation", "url": "https://loxlyatkinson.github.io/naptosa-member-journey-presentation/" },
+      { "name": "NAPTOSA Western Cape search visibility plan", "url": "https://loxlyatkinson.github.io/naptosawc-visibility-plan/" },
+      { "name": "AI in coaching, a decision workbench", "url": "https://loxlyatkinson.github.io/ai-in-coaching/" },
+      { "name": "Evolving, AI in e-commerce", "url": "https://loxlyatkinson.github.io/evolving-ai-in-ecommerce/" },
+      { "name": "Client scoping questionnaire", "url": "https://loxlyatkinson.github.io/client-scoping-questionnaire/" }
+    ]
+  }
+}

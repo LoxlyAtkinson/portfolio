@@ -1,0 +1,114 @@
+{
+  "client": "PISA Consulting",
+  "hardPart": {
+    "heading": "Proving a rebuilt scoring engine returns the same answer as the original, not a similar one",
+    "body": "The client's three instruments already worked, so rebuilding them was only worth doing if the new engine returned the same result on every input, and a report that places someone one band away from where the original placed them is worse than no report at all. The check lives at tools/parity-gauntlet/ and drives both products in a real browser rather than comparing two functions in isolation: 15 deterministic answer patterns per instrument, 45 in total, with the new system's answers read back out of the database rows they were actually stored in, returning 0 answer mismatches, 0 order differences and 0 percentage differences. A second pass searched below, at and above every band cut on all three instruments, 36 vectors in total, and ten of the twelve just-below vectors land a float hair under their cut, so they round to the displayed percentage of the band above while correctly banding below it, and both products placed every one of them on the same side. Report prose was then diffed across 81 pairs, with no authored content missing and no unexplained extra lines. Because a harness written by the same person who wrote the engine proves less than it appears to, three independent review agents, blind to the build, were given the originals and the rebuild and asked to produce a counterexample rather than to agree, across 29 paired runs, and all three returned NO_COUNTEREXAMPLE. The same standard closed the deployment: rebuilding the committed source reproduced the exact content-hashed bundle the live URL serves, 5 of 5 routes returned 200, and the screenshot protocol was changed so the page prints its own URL, its loaded bundle hash and a timestamp into the frame before capture, which ties an image to one specific production build instead of to a moment in time. One defect the test suite never caught came out of driving the live URL by hand: a routing branch still tested identities for the old authentication provider's prefix, so every real client under the new provider was sent to a dead-end screen, and separately I found 16 test files that had never run under any runner, wrote the runner, and made them real."
+  },
+  "honestLimits": [
+    "No usage figures exist for this system and I am not going to invent any. There is no participant count, no completion count and nothing here about how many assessments have been taken.",
+    "No testimonial, quote, rating or named reference exists for this client. None has been collected, so none appears on this page.",
+    "The commerce layer is modelled in the database and is not live. This page claims no checkout, payment or entitlement work as delivered.",
+    "Every count on this page was counted from the repository and the project's own verification runs. Figures that existed only as prose in a session log, including a table count and a stored-results count, have been left out rather than repeated."
+  ],
+  "liveLabel": "www.pisaconsulting.com/assessments",
+  "liveUrl": "https://www.pisaconsulting.com/assessments",
+  "numbers": [
+    {
+      "value": "250",
+      "label": "Instrument scoring rules transcribed verbatim, each with the source line it came from (85, 91 and 74)",
+      "source": "the three rule ledgers under docs/fe-be-split, with the per-instrument counts stated in the split plan"
+    },
+    {
+      "value": "45 of 45",
+      "label": "Browser-driven answer patterns matched between the original instruments and the rebuild",
+      "source": "parity gauntlet run recorded in the project log"
+    },
+    {
+      "value": "36 of 36",
+      "label": "Band-boundary vectors landing on the same side in both products",
+      "source": "parity gauntlet boundary search"
+    },
+    {
+      "value": "81",
+      "label": "Report prose pairs diffed with no missing authored content and no unexplained extra lines",
+      "source": "parity gauntlet prose diff"
+    },
+    {
+      "value": "29",
+      "label": "Paired blind comparisons across three independent review agents, all returning NO_COUNTEREXAMPLE",
+      "source": "blind refutation runs recorded in the project log"
+    },
+    {
+      "value": "31",
+      "label": "Postgres migrations behind the portal, alongside 5 Deno edge functions",
+      "source": "ls of supabase/migrations and supabase/functions"
+    },
+    {
+      "value": "86",
+      "label": "TypeScript and TSX source files across 30 React components",
+      "source": "find over pisa-product-app/src and ls of its components directory"
+    },
+    {
+      "value": "29,196",
+      "label": "Files in the byte-verified mirror of the client's live site, 0 missing and 0 size mismatches",
+      "source": "the mirror README's own verification against the server listing"
+    }
+  ],
+  "period": "September 2026",
+  "problem": "PISA Consulting's three leadership assessments existed as self-contained HTML files. Everything ran inside the visitor's browser: the statements, the scoring rules and the report content sat in the page, the report was a print dialogue and the email was a mailto link, so an answer set lasted only as long as the tab stayed open. The firm wanted the same instruments as a hosted product, with the scoring done on a server and the results retained.",
+  "proof": [
+    "Scoring parity driven in a real browser on both the original instruments and the rebuild, with the new system's answers read back out of the stored database rows: 45 of 45 answer patterns, 0 answer mismatches, 0 order differences, 0 percentage differences.",
+    "Every band cut on all three instruments probed below, at and above the boundary, 36 vectors in total, with both products placing every one on the same side, including the ten that sit a float hair under their cut.",
+    "Three independent review agents, blind to the build, asked to produce a counterexample across 29 paired runs against the originals. All three returned NO_COUNTEREXAMPLE, with 81 prose pairs diffing clean alongside.",
+    "Deployment verified by rebuilding the committed source and reproducing the exact content-hashed bundle the live URL serves, 5 of 5 routes returning 200, with screenshots printing their own URL, bundle hash and timestamp into the frame.",
+    "The append-only trigger on result revisions exercised rather than assumed: insert accepted, UPDATE refused, DELETE refused, then rolled back with no rows left behind. The client's existing WordPress installation proven unaffected four ways after go-live, including an md5 check on the untouched root .htaccess."
+  ],
+  "role": "Sole engineer, design through production",
+  "sector": "Leadership and executive coaching",
+  "slug": "pisa-assessments",
+  "stack": [
+    "React 19",
+    "TypeScript",
+    "Vite 8",
+    "Tailwind CSS 4",
+    "Radix UI",
+    "Supabase Postgres with row-level security",
+    "Supabase Auth",
+    "Deno edge functions",
+    "Playwright",
+    "Vitest",
+    "oxlint",
+    "npm workspaces monorepo",
+    "Docker Compose with MariaDB and WP-CLI",
+    "Python (PyMuPDF)"
+  ],
+  "status": "Live",
+  "summary": "Three leadership questionnaires a coaching firm uses with its clients now run as a hosted service. A participant signs in, is given access to an assessment, works through it with their progress kept if they stop part way, submits, and gets a scored report they can read and print. Results are captured and kept, and administrators can issue access, track who has used it, and see results.",
+  "title": "PISA Assessment Portal",
+  "whatIBuilt": [
+    {
+      "heading": "The assessment, from sign-in to printed report",
+      "body": "A participant registers, confirms their email, completes a profile and is granted access to one or more instruments. They work through the statements in the browser with answers held locally so a closed tab does not cost them the session, review what they have entered, and submit. The server scores the submission, bands it and builds the report, which they can read on screen, print or download. Three instruments are live, the largest running to 96 statements."
+    },
+    {
+      "heading": "Scoring rules taken out of the page and put in the database",
+      "body": "Before writing any engine code I transcribed all 250 scoring rules across the three instruments, 85, 91 and 74, each one carrying the line of the original file it came from. That ledger became the specification for the rebuild. Scoring logic, band thresholds and the coaching text now live as seeded database rows read by an edge function rather than in page source. That move was the commercial point of the build."
+    },
+    {
+      "heading": "Accounts, access control and an admin console",
+      "body": "The portal carries registration, email confirmation, login, password recovery, profile completion, access-token entry and an email challenge, alongside a client area for results history, report detail, notifications and settings. The admin side issues and tracks access, views results and analytics, and manages client profiles. Roles for participant, manager and administrator are enforced in Postgres with row-level security rather than by hiding React pages, and the access-link model supports replacement links. Authentication was consolidated onto a single provider."
+    },
+    {
+      "heading": "Records that cannot be quietly edited",
+      "body": "Consent is written to a hash-chained ledger with a single edge function as the only write path, and direct write grants on the table revoked. Result revisions are append-only, and I exercised the trigger rather than trusting that it existed: an insert accepted, an UPDATE refused, a DELETE refused, then the whole exercise rolled back leaving no rows behind. The lesson, that a trigger never exercised is not a trigger that works, is written up in the project's own learnings folder."
+    },
+    {
+      "heading": "Live inside the client's existing website, with that site proven untouched",
+      "body": "The build ships as a static bundle uploaded into a folder under the client's existing WordPress installation, which a WordPress routing rule allows without editing anything at the root. After go-live I proved the installation unaffected four separate ways, including an md5 check confirming the root .htaccess was byte for byte what it had been, and a check that WordPress itself still served 200. The deploy is verified by rebuilding the committed source and reproducing the exact content-hashed bundle the live URL serves, with 5 of 5 routes returning 200."
+    },
+    {
+      "heading": "The client's existing site mirrored, run locally, and changed under control",
+      "body": "Their live WordPress site is the client's own, not something I built, and I took a full copy of it: 29,196 files and 6,485 directories, every file checked against the server's own listing with 0 missing and 0 size mismatches, plus a database dump of 29 tables and 8,634 rows test-restored into a throwaway database and matched against production. That copy runs locally under Docker Compose with WordPress, MariaDB and WP-CLI, and it is where a new privacy policy was prepared before it went anywhere near production. A rollback dump was taken first, the text was extracted from the source PDF with PyMuPDF and checked word for word rather than retyped, then six changes were applied and verified live at 14 of 14 sections, 22 of 22 numbered items, the footer pointing at the page and not the old file, and all existing pages still returning 200."
+    }
+  ]
+}

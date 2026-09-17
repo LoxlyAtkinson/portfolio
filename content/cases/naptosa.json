@@ -1,0 +1,115 @@
+{
+  "slug": "naptosa",
+  "title": "NAPTOSA Western Cape member platform",
+  "client": "NAPTOSA Western Cape",
+  "sector": "Trade union, education and member services",
+  "status": "Live",
+  "liveUrl": "https://naptosawc.co.za",
+  "liveLabel": "naptosawc.co.za",
+  "period": "June 2025 to present",
+  "role": "Sole engineer, discovery through production",
+  "summary": "Members of a provincial teachers' union can ask a question, register, or raise a workplace problem in English or Afrikaans, from the phone they already carry. When something serious comes up, a person at the union is pulled in with the whole conversation attached, and staff then work that matter through one shared case file with a number, an owner and a timeline. The union's public site sits on the same system, in both languages.",
+  "problem": "The provincial office's web presence was a WordPress brochure site with no member portal and no login system. Anything a member needed from a person happened away from the website. The job was to give members a route in that works on a phone, in either language, and to give the office one place to see and answer what comes back.",
+  "whatIBuilt": [
+    {
+      "heading": "A public site where Afrikaans is not an afterthought",
+      "body": "56 public routes, 20 of them Afrikaans and 15 of them articles, every one prerendered so the page arrives as real HTML rather than an empty shell waiting on JavaScript. That is what makes the Afrikaans pages readable to a search engine and to someone on a slow connection, and it is why language parity is treated in this build as a credibility requirement rather than a translation layer. The build generates its own article route list, sitemap and llms-full.txt before every compile, and separate verifier scripts check the output before anything is uploaded. Pages cover membership, fees, joining, governance, leadership, pay scales, a school representative toolkit, publications, events and press."
+    },
+    {
+      "heading": "A WhatsApp assistant with a deliberately small job",
+      "body": "The assistant does four things and no more: answer questions from the union's own material, escalate to a person, help someone register, and carry member representative communications. Every answer drawn from that material carries a verification note, so nothing it says reads as final authority. A distress phrase such as \"I have been dismissed\" fires a structured email to staff carrying the member's contact, name, member status, severity, the question and the last stretch of the conversation. If a member then goes quiet mid-matter, the bot sends one \"still there?\" ping at sixty minutes and, after a further thirty minute grace, sends the escalation anyway, so a serious matter is never lost to silence."
+    },
+    {
+      "heading": "Nothing gets filed behind a member's back",
+      "body": "When a member who already has an open case sends a new message, the assistant asks them to confirm before attaching it to that case. It does not route it automatically, because the member is the one who knows whether this is the same matter. A follow-up message inside fifteen minutes appends to the case just created instead of opening a duplicate, and the registration path sends exactly one staff email per subject and none at all on a curiosity turn, with a negation guard so \"do not sign me up\" can never be read as commitment."
+    },
+    {
+      "heading": "A back office where a case is a real record",
+      "body": "63 page components under the staff area: case intake board, CRM inbox, casework tabs, case detail drawer, reminder editor, close report panel, workshop planner, social media manager and interaction logs. Cases carry their own numbering, an activity timeline, an assigned owner, witnesses, attachments, reminder rules and audit rows. Workshop attendance is paid through PayFast, with an initiate function, an instant transaction notification handler, a receipt email, payment reminders and an hourly watchdog that keeps alerting on any payment row a human still has to decide about. One commit on the main branch exists only because the case panel was unreachable in phone landscape and at 200% browser zoom."
+    },
+    {
+      "heading": "An interface that does not assert things nobody said",
+      "body": "The staff console's WhatsApp connection indicator was a compile-time `connected: true` literal. I replaced it with a monitored signal, backed by two database functions and a read-only staff-authenticated edge function, resolving to healthy, connecting grace, reconnecting or disconnected, where reconnecting is transitional and never paints green. The staleness threshold is 1,800 seconds, three times the verified ten minute health cron, so two missed ticks still read as fresh, and a stale row says monitoring is not reporting rather than the account is down. The same rule runs through the casework screens, where commits on the main branch exist to stop the case panel asserting things nobody said and to make the critical alerts panel tell the truth."
+    },
+    {
+      "heading": "A data layer written by hand",
+      "body": "271 migrations creating 106 distinct tables, with no ORM anywhere in the stack. The SQL is hand-written and versioned, and the same discipline applies to the 82 Supabase edge functions that sit behind the site, the assistant and the back office. Alongside it, 158 Playwright and spec files, and 755 written engineering learnings indexed by category: anti-patterns, technology insights, problem resolutions, process improvements and verification failures. Each learning exists because something went wrong once and a rule was written so it could not go wrong the same way again."
+    }
+  ],
+  "hardPart": {
+    "heading": "Proving a deploy landed, when every route on the host answers 200",
+    "body": "The host this site runs on answers 200 to everything: a real page, a title-less shell, a path that does not exist, because the single-page fallback serves the homepage for anything it cannot find. So the usual post-deploy check, curl a few routes and look for 200, cannot tell a deploy that landed from one that uploaded nothing. I wrote scripts/deploy-guarded.py in answer to it, a Python pipeline of 25 gates mined out of the project's own written learnings and session log, each gate carrying a one-line INCIDENT comment naming the recorded failure it prevents, so that nobody deletes a gate without first reading the bill it was written against. Three rules sit at the top of the file and every gate follows from them: never trust an exit code, because a producing stage is believed only once its artifact has been inspected; never trust a success message, because only the live bytes, fetched back and hashed against what was built, close a deploy; never trust a 200. Gate 21 is the one that actually closes a deploy, and it does four things in order, fetch the live homepage, read the content-hashed bundle name the HTML references, fetch that chunk, and sha256-compare the bytes that come back against the file that was built. The pipeline also carries a live-request budget of 14 with 0.6 seconds between calls, after roughly 25 rapid smoke requests got the deploying address blocked for hours, and a 450-file ceiling per upload burst, after a 529-file burst tripped the host's abuse rule. On its first two real runs it refused to deploy, both times correctly, once over uncommitted files and once over a port it found held and would not guess about, and the two production deploys it has allowed since were closed by byte identity rather than by an HTTP 200."
+  },
+  "numbers": [
+    {
+      "value": "956",
+      "label": "Commits on the main branch since June 2025",
+      "source": "git log on the repository's main branch"
+    },
+    {
+      "value": "25",
+      "label": "Gates in the guarded deploy pipeline, each naming the failure it prevents",
+      "source": "scripts/deploy-guarded.py"
+    },
+    {
+      "value": "82",
+      "label": "Supabase edge functions",
+      "source": "directory listing of supabase/functions"
+    },
+    {
+      "value": "271",
+      "label": "Database migrations, creating 106 distinct tables",
+      "source": "the migrations tree, with CREATE TABLE statements deduplicated"
+    },
+    {
+      "value": "56",
+      "label": "Prerendered public routes, 20 of them Afrikaans and 15 of them articles",
+      "source": "dist-routes/prerender-routes.json"
+    },
+    {
+      "value": "63",
+      "label": "Page components in the staff back office",
+      "source": "file count under src/pages/staff"
+    },
+    {
+      "value": "158",
+      "label": "Playwright and test spec files",
+      "source": "file count under the tests tree"
+    },
+    {
+      "value": "755",
+      "label": "Written engineering learnings, indexed by category",
+      "source": "file count under the Learnings tree"
+    }
+  ],
+  "stack": [
+    "React 18",
+    "TypeScript",
+    "Vite",
+    "Tailwind CSS",
+    "shadcn-ui and Radix UI",
+    "TanStack Query",
+    "react-i18next (English and Afrikaans)",
+    "Supabase (Postgres and Deno edge functions)",
+    "Clerk",
+    "Google Gemini",
+    "Unipile (WhatsApp and email transport)",
+    "PayFast",
+    "Playwright",
+    "Prerendered static generation",
+    "Python (the deploy pipeline)"
+  ],
+  "proof": [
+    "Probed live on 17 September 2026: the homepage, /membership and /af/about each returned 200 with three distinct correct titles, one of them in Afrikaans.",
+    "Both production deploys through the guarded pipeline were closed by byte identity, the live bundle chunk fetched back off the host and sha256-matched against the file that was built. Neither was closed by an HTTP 200.",
+    "The pipeline refused to deploy on two of its first real runs, both times correctly, and both refusals are recorded in the project log.",
+    "One mandated end-to-end script is the only sanctioned way to test the assistant, and hand-rolled synthetic webhook posts are explicitly forbidden. The project record also states plainly what that harness cannot prove: inbound delivery from the provider is bypassed, so it is never tested by it.",
+    "Accessibility is fixed in the commit log rather than claimed: one commit on the main branch records that the case panel was unreachable in phone landscape and at 200% zoom."
+  ],
+  "honestLimits": [
+    "No member count appears anywhere on this page. The membership figures in my own project files contradict each other and none of them traces back to a register, so I publish none of them.",
+    "No usage figures exist here either. No conversation volume, no case count, no portal sign-in count. The case numbers I can show are verification records created with test data, and I am not going to present them as production volume.",
+    "No outcome percentages and no analytics. Response-time and resolution targets were written at discovery and never measured after launch, so they are targets, not results. I have no first-party analytics for the site, and the only search figures on file are third-party estimates from a single date, which is not the same thing as knowing what the site does.",
+    "The platform is live and still under active work. It is not a finished, handed-over product."
+  ]
+}

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Century Club, Century Club | Loxly Atkinson</title>
+<meta name="description" content="The client changes what the public sees without needing a developer. They edit a price, swap the photo at the top of the homepage, take a unit off while it is out of service, or write a post and date it for next week, and the live site updates itself. Guest enquiries, invoices and the photo library sit in the same back office, so the whole thing is run from one place.">
+<meta name="author" content="Loxly Atkinson">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Century Club, Century Club | Loxly Atkinson">
+<meta property="og:description" content="The client changes what the public sees without needing a developer. They edit a price, swap the photo at the top of the homepage, take a unit off while it is out of service, or write a post and date it for next week, and the live site updates itself. Guest enquiries, invoices and the photo library sit in the same back office, so the whole thing is run from one place.">
+<meta property="og:site_name" content="Loxly Atkinson">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Century Club, Century Club | Loxly Atkinson">
+<meta name="twitter:description" content="The client changes what the public sees without needing a developer. They edit a price, swap the photo at the top of the homepage, take a unit off while it is out of service, or write a post and date it for next week, and the live site updates itself. Guest enquiries, invoices and the photo library sit in the same back office, so the whole thing is run from one place.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9632;</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="casehead">
+  <div class="wrap">
+    <a class="back" href="../../index.html">All work</a>
+    <h1>Century Club</h1>
+    <div class="sub">
+      <span class="pill live">Live</span>
+      <span class="pill">Serviced apartments and short-stay hospitality, Century City, Cape Town</span>
+      <span class="pill">March to August 2026</span>
+      <span class="pill">Sole engineer, design through production</span>
+      <a class="extlink" href="https://centuryclub.co.za/" target="_blank" rel="noopener">centuryclub.co.za</a>
+    </div>
+    <p class="summary">The client changes what the public sees without needing a developer. They edit a price, swap the photo at the top of the homepage, take a unit off while it is out of service, or write a post and date it for next week, and the live site updates itself. Guest enquiries, invoices and the photo library sit in the same back office, so the whole thing is run from one place.</p>
+  </div>
+</header>
+
+<div class="factbar"><div class="facts">
+      <div class="fact">
+        <span class="n">17</span>
+        <span class="l">Admin screens in the back office</span>
+        <span class="src">counted as page.tsx files under frontend/src/app/admin, recounted on disk</span>
+      </div>
+      <div class="fact">
+        <span class="n">13</span>
+        <span class="l">Property listings, every one verified returning 200 live</span>
+        <span class="src">properties.json and listings-snapshot.json both hold 13, plus the 2026-08-17 proving run</span>
+      </div>
+      <div class="fact">
+        <span class="n">59</span>
+        <span class="l">HTML pages in the built static export</span>
+        <span class="src">file count in the frontend build output directory</span>
+      </div>
+      <div class="fact">
+        <span class="n">103</span>
+        <span class="l">TypeScript and TSX source files</span>
+        <span class="src">file count under frontend/src</span>
+      </div>
+      <div class="fact">
+        <span class="n">8</span>
+        <span class="l">Supabase edge functions behind the back office</span>
+        <span class="src">directory listing of frontend/supabase/functions</span>
+      </div>
+      <div class="fact">
+        <span class="n">986</span>
+        <span class="l">Checks in the final pass of my own internal design audit, with 68 failures left standing</span>
+        <span class="src">project session state for the design loop</span>
+      </div>
+      <div class="fact">
+        <span class="n">10</span>
+        <span class="l">Written engineering learnings indexed from this build</span>
+        <span class="src">7 problem resolutions and 3 process improvements in the project&#39;s Learnings directory</span>
+      </div>
+</div></div>
+
+<main id="main">
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><h2>The situation</h2></div>
+    <div class="prose"><p>The site is the public shop window for short-stay apartments across five complexes in Century City, positioned in the brief as a curated concierge offer. The scope was written out as nine capabilities in plain language in the handover guide: the client edits prices, photographs, availability and posts directly, and guest enquiries, invoicing and media are handled in the same place rather than in separate tools. The requirement underneath all nine was that a save by the client reaches the public page with no developer in the loop.</p></div>
+    <div class="sec-body"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><h2>What I built</h2></div>
+    <div class="prose">
+      <h3>A back office with seventeen screens</h3>
+      <p>Seventeen admin pages exist as real routes: dashboard, homepage editor, apartment list and editor, blog and blog editor, media, leads list and detail, invoices list, create and detail, settings, users list, create and edit, and login. The homepage editor covers the hero photo and the choice of featured apartments. Apartment management covers prices, beds, baths, photos, amenities, descriptions and an on or off switch for units out of service. Team invites are role scoped, so a marketing account can edit the blog and nothing else.</p>
+      <h3>A site that republishes itself</h3>
+      <p>The client saves in the CMS, a database trigger marks the build state dirty, an edge function fires a GitHub repository dispatch, CI builds the static export and ships it to the live host over FTP, then clears the flag and stamps the build time. No developer machine is in the loop at any point. A ten minute cron survives only as a safety net, not as the mechanism. Because the output is a static export, the public pages are flat files with no application server to keep alive.</p>
+      <h3>An enquiry inbox and branded invoicing</h3>
+      <p>Guest enquiries land in an inbox with search, a status filter for new, contacted and converted, per lead notes and CSV export. Invoicing is auto numbered in the client&#39;s own series, tracks sent, paid and overdue, and shows a monthly total. A daily cron function sends reminders on the schedule the settings screen defines. That settings screen also holds bank details, the auto send day, reminder timing and the email templates, so the automation is the owner&#39;s to change rather than mine.</p>
+      <h3>Scheduled publishing and a media library</h3>
+      <p>Blog posts can be written now and dated forward, and a scheduled function publishes them when their time arrives. The media library accepts JPEG, PNG, MP4 and PDF and converts uploaded images to WebP automatically, so the client uploads the file they have and the site serves the format it wants. Storage buckets and their access policies are defined in their own migration rather than configured by hand in a dashboard. Eight edge functions back the whole back office, covering invites, password resets, invoice email, reminders, enquiry email, scheduled posts, the daily invoice cron and the republish trigger.</p>
+      <h3>The public site</h3>
+      <p>Thirteen real listings, plus about, amenities, area guide, concierge, blog, FAQ, contact, privacy and terms, and three search landing routes covering Century City and Cape Town accommodation terms. The build produces 59 HTML files from 103 TypeScript and TSX source files. The brief set the positioning as curated concierge, and the route set carries a dedicated concierge page and an area guide rather than folding both into the homepage. All thirteen listings were verified returning 200 on the live host during the proving run, and a stale test listing was verified gone at 404 in the same pass.</p>
+      <h3>A design pass re-graded by a critic that had not seen the fixes</h3>
+      <p>I ran the design audit as a loop, and the second pass was deliberately blind to the first pass&#39;s own work. It found three of the earlier fixes wrong. One was a bg-black left on the body element that silently voided an entire OKLCH palette conversion while still compiling cleanly. Another was a homepage hero wrapped so that it rendered client side only, which meant the static export shipped with no hero markup in it at all. The final pass ran 986 checks against my own rubric with 68 failures left standing, 39 of them locked brand items that were not mine to change.</p>
+    </div>
+    <div class="sec-body"></div>
+  </div>
+</section>
+
+<section class="hardpart">
+  <div class="wrap">
+    <span class="tag">The hard part</span>
+    <h2>A delete that reported success and left the page live</h2>
+    <p>Deleting a property from the back office looked like it worked: the row disappeared, the list refreshed, and the public site carried on serving the unit as if nothing had happened. The cause was a fire and forget republish call, where the admin screen dispatched the request and then routed away, the unmount aborted it mid flight, and a bare catch swallowed the failure so nothing ever surfaced. Creating a property worked only by accident, because that screen navigated back to the same route and the request survived long enough to land. The blog and homepage editors never called the republish trigger at all, which meant a better call site would only have fixed the screens I happened to be looking at. So I moved it out of the client entirely and into the database: a statement level trigger sets the build state to dirty in the same transaction as the edit itself, in migration 20260817000002, so the flag either commits with the change or the change does not commit, and no screen anyone adds later can forget to raise it. The proof was a frozen clock. The dirty timestamp was held unchanged through six consecutive skipped runs, a unit was toggled at 13:07:04, and the scheduled run at 13:48:24 read back 2026-08-17T13:07:04.061359+00:00, matching to the microsecond, then built and deployed with no manual dispatch. I rebuilt the publish progress UI on the same principle: it calls a page published only after fetching it, and treats a delete as done only when the URL returns 404, so the status bar cannot go green while the public page is still there.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><h2>Built with</h2></div>
+    <ul class="tags"><li>Next.js 16.1.6 with static export</li><li>React 19.2.3</li><li>TypeScript 5</li><li>Tailwind v4</li><li>Framer Motion 12, GSAP and Lenis</li><li>hls.js</li><li>Supabase Postgres, edge functions and storage</li><li>Google GenAI</li><li>jsPDF and dnd-kit</li><li>GitHub Actions repository dispatch, deployed over FTP</li></ul>
+    <div class="sec-body"></div>
+  </div>
+</section>
+
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><h2>How it was proven</h2></div>
+    <ul class="checks">
+      <li>The database trigger was proven against a frozen clock, not assumed. The dirty timestamp was held through six consecutive skipped runs, a unit was toggled at 13:07:04, and the 13:48:24 scheduled run read back 13:07:04.061359 to the microsecond, then built and deployed with no manual dispatch.</li>
+      <li>All 13 listings were verified returning 200 on the live host in the same proving run, and a stale test listing was verified gone at 404.</li>
+      <li>The publish UI confirms published by fetching the page rather than trusting the database flag, and treats a delete as done only at HTTP 404.</li>
+      <li>The blind design re-audit re-checked the first round&#39;s own work and found three of its fixes wrong, including a bg-black that silently voided an OKLCH palette conversion while still compiling, and a hero that shipped zero markup in the static export.</li>
+      <li>centuryclub.co.za was probed on 2026-09-17 and returned 200 serving its own page title.</li>
+    </ul>
+    <div class="sec-body"></div>
+  </div>
+</section>
+
+<section class="plain">
+  <div class="wrap">
+    <div class="sec-head"><h2>What this does not prove</h2></div>
+    <div class="bounds">
+      <ul>
+        <li>No booking, occupancy, enquiry or traffic figures exist for this site, and I am not going to invent any. Every number here is counted off disk or off a live request, and I recounted each one before publishing this page.</li>
+        <li>The public site takes enquiries. It is not a booking engine and there is no checkout in it. Invoicing lives in the back office and tracks its own states, it does not process card payments.</li>
+        <li>The design audit is scored against a rubric I wrote and ran myself. It is an internal quality gate, not an external rating and not a user study, which is exactly why the second pass was run blind to the first.</li>
+        <li>There is no testimonial and no named reference for this work. I do not have one for any client, and I would rather say so than manufacture one.</li>
+      </ul>
+    </div>
+    <div class="casenav" style="margin-top:2.5rem">
+      <a href="../smart-ai-solutions/"><span class="lbl">Previous</span>Smart AI Solutions</a>
+      <span></span>
+    </div>
+  </div>
+</section>
+
+</main>
+<div class="wrap">
+<footer class="foot">
+  <span>Loxly Atkinson, Cape Town. Built and published by hand.</span>
+  <span>Every link verified 17 September 2026. <a href="../../index.html">Back to the top</a></span>
+</footer>
+</div>
+</body>
+</html>

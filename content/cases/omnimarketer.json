@@ -1,0 +1,119 @@
+{
+  "slug": "omnimarketer",
+  "title": "OmniMarketer AI",
+  "client": "Partner collaboration, co-built product. Not a paid client engagement",
+  "sector": "B2B SaaS. CRM and marketing automation for South African SME service businesses",
+  "status": "Live",
+  "period": "2026 to present",
+  "role": "Sole builder, design through go-live",
+  "liveUrl": "https://omnimarketer.app/",
+  "liveLabel": "omnimarketer.app",
+  "summary": "A salon, clinic, gym or repair shop already runs its customer relationships inside a WhatsApp inbox. This turns that inbox into a business system: every chat becomes an organised contact record, everyone in the shop works one shared queue with an assistant that answers first and hands the tricky ones over, quotes and bookings become a pipeline, and reminders go out later from the number the customer already knows. Nobody has to change how they talk to their customers.",
+  "problem": "South African service businesses already sell and book over WhatsApp, so the phone inbox is where the customer relationship actually lives. What a phone inbox does not give them is a shared view of it: no contact record, no pipeline, no scheduled follow-up, and no way for two people to work the same number. The product's own jobs pages name the five jobs it exists for, which are not missing a lead, replying faster, sending reminders, following up quotes and winning back lapsed clients.",
+  "whatIBuilt": [
+    {
+      "heading": "One shared workspace over live conversations",
+      "body": "The operational spine is a command centre with eleven view modes, including a sales workspace, pipeline, follow-ups, retention, manager overview, reports, CRM, groups, campaigns and bot configuration. The sales workspace runs a live priority queue over real conversations with full thread replay, a reply box and a customer panel alongside. It is a shared workspace by design, so more than one person can work the same number."
+    },
+    {
+      "heading": "Contact records that assemble themselves from chat",
+      "body": "The CRM holds contacts and businesses with search, tag filtering, sorting, virtualised pagination, CSV import and list and group actions. Opening a contact shows recent conversations, linked businesses, open quote handoffs, service bookings, bookable services, lifecycle state and lifecycle history in one panel. There is a merge service for the duplicates that any phone-based dataset produces."
+    },
+    {
+      "heading": "Quotes, bookings, invoices and a catalogue",
+      "body": "Sixty-six service modules cover bookings and booking email, an ICS calendar feed so appointments land in an ordinary calendar app, invoices with PDF generation, a product catalogue with media and PDF output, custom fields, lead scoring and an email-to-card inbox. Appointment availability is configurable from the UI rather than hardcoded. These are the parts that turn a conversation into money owed."
+    },
+    {
+      "heading": "Work that runs while nobody is watching",
+      "body": "Scheduled processing is handled by dedicated edge functions: scheduled campaigns, email sequences, follow-ups, a message queue, recurring tasks, workflow execution and board automations, plus a provider health cron registered on pg_cron at a ten minute interval. Retention messages are spaced with a random gap on every send rather than fired all at once. Multi-step automations are authored in a visual workflow builder."
+    },
+    {
+      "heading": "A multi-tenant data layer in SQL",
+      "body": "171 migrations create 137 tables and carry 500 CREATE POLICY statements. Deal visibility is a purpose-built ACL, crm_can_see_opportunity, which resolves own, group and global scopes, is consumed by the pipeline forecast migration, and is pinned by its own migration test at supabase/migrations/__tests__/crm_deal_acl.test.ts. The schema is defined in SQL migration files and the application carries no ORM dependency."
+    },
+    {
+      "heading": "The marketing site as a codebase",
+      "body": "The site is 47 Astro pages in the repository: seven feature pages, three competitor comparisons and a hub, four vertical landers, five jobs-to-be-done landers, three free calculators and generators, a blog with slug and category routes plus on-site search, and a set of trust and legal pages covering POPIA and POPIA notice, privacy, cookies, terms, security, subprocessors, trust, status and an operator agreement. Built on Astro with React islands and a generated sitemap. I am claiming what is in the repository here, not live route coverage."
+    }
+  ],
+  "hardPart": {
+    "heading": "Proving the WhatsApp path on production, and the bug only a real handset could find",
+    "body": "The go-live criterion was not a green test suite, it was one real message leaving the live number, one real reply coming back, and both landing correctly on a multi-tenant path. I built it to fail closed first: sending is off per organisation by default and returns 403 until the flag is set, and the inbound webhook cannot use the platform's JWT check because the provider posts to it, so it runs with JWT verification off and authenticates on its own shared secret header instead, rejecting anything else before it touches the database. The webhook was registered scoped to a single provider account rather than to the whole workspace, after auditing the provider's existing webhook list, because a shared provider workspace can route a number's inbound traffic somewhere it does not belong. The production run on 22 June 2026 recorded three legs: an outbound one to one send returning success with a provider message id at HTTP 201 and a matching message log row at status sent, an inbound handset reply persisted as exactly one conversation row attributed to that one organisation with a re-POST producing no duplicate, and a wrong shared secret rejected 401 before any write, a missing header also 401, a GET 405. Then the run failed in a way no test had, because the first replies from the handset never arrived at all. The webhook was stamping the delivered timestamp from the edge function clock while the created timestamp fell through to the database's now(), which ran a moment later, so every insert violated a CHECK constraint requiring delivery to be at or after creation and the rows were rejected silently. The fix was to take one timestamp inside the function and pin both columns to it, then redeploy, and the honest tail is that the inbound idempotency table had already claimed those message ids before the insert failed, so the dropped replies could not be backfilled. A unit test on one clock would never have found this: it needed two clocks, a network hop and a real handset, which is the argument for proving things on the live path."
+  },
+  "numbers": [
+    {
+      "value": "86",
+      "label": "Supabase edge functions in the codebase",
+      "source": "counted in supabase/functions, 2026-09-17"
+    },
+    {
+      "value": "171",
+      "label": "Postgres migration files",
+      "source": "counted in supabase/migrations"
+    },
+    {
+      "value": "137",
+      "label": "tables created across those migrations",
+      "source": "deduplicated grep of create table statements"
+    },
+    {
+      "value": "500",
+      "label": "CREATE POLICY statements for row level security",
+      "source": "grep across supabase/migrations"
+    },
+    {
+      "value": "~93,500",
+      "label": "lines of frontend TypeScript and TSX",
+      "source": "wc -l across App.tsx, types.ts, components and services"
+    },
+    {
+      "value": "153",
+      "label": "TypeScript and TSX files under components/",
+      "source": "find over components/"
+    },
+    {
+      "value": "125",
+      "label": "backend Deno test files",
+      "source": "find supabase -name '*.test.ts'"
+    },
+    {
+      "value": "96",
+      "label": "Playwright browser specs",
+      "source": "find tests -name '*.spec.ts'"
+    }
+  ],
+  "stack": [
+    "React 19",
+    "TypeScript 5.8",
+    "Vite 6",
+    "Tailwind CSS",
+    "Clerk",
+    "Supabase Postgres with row level security",
+    "Deno edge functions",
+    "pg_cron",
+    "Supabase Vault",
+    "Google Gemini 2.5 Flash",
+    "Unipile WhatsApp transport",
+    "xyflow visual workflow builder",
+    "dnd-kit",
+    "TanStack Virtual",
+    "Recharts",
+    "jsPDF",
+    "Playwright",
+    "Astro 4",
+    "GitHub Actions CI"
+  ],
+  "proof": [
+    "Outbound proof on production, 22 June 2026: a real one to one send returned success with a provider message id at HTTP 201, and the message log row for it read status sent. The receipt is written into docs/go-live-runbook.md with the timestamp.",
+    "Inbound proof on production: the handset reply persisted as exactly one conversation row, attributed to that one organisation only, and a re-POST of the same payload produced no duplicate.",
+    "Rejection proof before any write: a wrong shared secret header returned 401, a missing one returned 401, and a GET returned 405.",
+    "The conversation was then observed in the production UI rather than only in the database, with the inbound message and the reply that followed it both visible on screen.",
+    "CI is a fail-closed gate in a fixed order: tsc, deno check, deno test across supabase/, build, then smoke. A weekly independent ship-check runs four parallel read-only auditors over docs, security, performance and test coverage under a receipts rule, where no status counts as state without a command or URL, a result and a timestamp."
+  ],
+  "honestLimits": [
+    "It is live and it is pre-revenue. There are no paying users and there is no revenue to report, and the remaining gate is demand rather than code.",
+    "No usage figures exist for this system and I am not going to invent any: no signups, no trials, no conversation volumes, no conversion numbers. There are no testimonials and no named customers either, because none exist. The one large scale figure this product used to show was deleted permanently from its own marketing, because it had been measured on a messaging transport that has since been retired and it came from a real person's account.",
+    "The 47 marketing pages are a count of the repository. Only the site root and the application itself are publicly reachable today, so I claim the codebase and not live route coverage.",
+    "The production proof covered one organisation on one number, and the send went from a number I control to my own handset rather than to a customer. It shows the path works end to end on a hardened multi-tenant setup. It does not show anything about behaviour at scale, and I have not measured that."
+  ]
+}

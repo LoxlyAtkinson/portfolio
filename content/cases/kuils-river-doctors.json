@@ -1,0 +1,112 @@
+{
+  "client": "Kuilsriver Doctors",
+  "hardPart": {
+    "heading": "Reading a clinical PDF without letting the model guess",
+    "body": "Extraction starts in src/lib/pdfExtractor.ts, which pulls text out of the uploaded buffer with pdf-parse and returns the text, the page count and a readable flag. It marks a document unreadable when the extracted text comes in under 50 characters, which is the scanned image case: a photographed sick note yields almost nothing, and a language model handed almost nothing will still answer confidently. That check is what stops the pipeline inventing, because a wrong dosage or a wrong date on a medical record is worse than no record at all. src/lib/documentClassifier.ts then posts the text to Google Gemini over raw fetch with no SDK in the dependency tree: three retries with exponential backoff at 1s, 3s and 9s, a 30 second timeout, truncation at 50,000 characters, and markdown code fence stripping before the response is parsed, because the model returns fenced JSON often enough to break a naive parse. It classifies into six document classes, prescription, sick note, consultation, lab result, referral and other, and extracts typed fields per class rather than one loose bag: medication carries name, dosage, frequency and route; a sick note carries start date, end date, diagnosis, ICD code and employer name; a consultation carries chief complaint, findings, diagnosis, treatment plan and follow up date. Three API endpoints consume it, covering the document upload, the extraction result and file retrieval, so it is wired into the product rather than a script that ran once for a demo. The same instinct shows up one layer down: appointment overlap is enforced by a Postgres trigger shipped as a migration, so a double booking is refused by the database whichever surface writes the row."
+  },
+  "honestLimits": [
+    "No usage figures are published here. There are no patient numbers and no booking volumes on file for this system, and the one search console reading that exists is a single point in time pull that would need a fresh export before it meant anything, so I am not presenting it as a result.",
+    "There are no portal screenshots. Every screen behind the patient and staff logins carries medical records, real or seeded, so the public routes and the source are what I can show.",
+    "No testimonial, quote or reference from the practice. None exists, and I will not write one.",
+    "The document pipeline is evidenced by reading the source and the three API routes that consume it. It has not been load tested and there is no extraction accuracy figure, so treat it as engineered rather than benchmarked."
+  ],
+  "liveLabel": "kuilsriverdoctors.co.za",
+  "liveUrl": "https://kuilsriverdoctors.co.za/",
+  "numbers": [
+    {
+      "value": "145",
+      "label": "API endpoints",
+      "source": "find src/pages/api -type f, counted in the repository"
+    },
+    {
+      "value": "102",
+      "label": "page routes outside the API",
+      "source": "find src/pages -type f excluding /api/"
+    },
+    {
+      "value": "65",
+      "label": "Supabase Postgres migrations",
+      "source": "ls -1 supabase/migrations"
+    },
+    {
+      "value": "670",
+      "label": "source files under src/",
+      "source": "find src -type f"
+    },
+    {
+      "value": "533",
+      "label": "lines of middleware",
+      "source": "wc -l src/middleware.ts"
+    },
+    {
+      "value": "6 roles, 8 permission areas",
+      "label": "role based access control",
+      "source": "src/lib/permissions.ts"
+    },
+    {
+      "value": "6",
+      "label": "clinical document classes, with typed fields per class",
+      "source": "src/lib/documentClassifier.ts"
+    },
+    {
+      "value": "87",
+      "label": "commits on HEAD, sole author, 90 across all refs",
+      "source": "git log and git shortlog -sn --all in the project repository"
+    }
+  ],
+  "period": "March 2026 to June 2026",
+  "problem": "The practice has been running since 2004 and was moving to a new public brand, and what was online under the old name was a legacy site built by another vendor. The work here is greenfield, first commit 4 March 2026 into an empty repository, and it covers the public site, the patient portal and the staff back office rather than the front page alone.",
+  "proof": [
+    "The live page title matches a string in src/pages/index.astro exactly, so this repository is provably the code serving the live domain. Bogus paths on the same host return a genuine 404, so the 200s on the real routes mean something.",
+    "Three routes probed on 17 September 2026, the home page, /book and /services, all returning 200 with three distinct correct titles.",
+    "The booking calendar was verified in a real browser before it was called finished: 5 days by 32 slots from 09:00 to 16:45, a slot click producing the active state, the confirmation and the hidden inputs, with zero console errors.",
+    "Appointment overlap is enforced by a database trigger shipped as migration 20260317000002_appointment_overlap_trigger.sql, so the rule holds whichever surface writes the row rather than only in the form the patient sees.",
+    "An SEO pass took broken internal links under /services from 6 to 0 and moved the structured data from MedicalBusiness to the more specific MedicalClinic."
+  ],
+  "role": "Sole engineer, design through production. 87 commits on HEAD, 90 across all refs, sole author.",
+  "sector": "Healthcare, primary care",
+  "slug": "kuils-river-doctors",
+  "stack": [
+    "Astro 5 SSR on the Node standalone adapter",
+    "React 19 islands",
+    "Clerk authentication",
+    "Supabase Postgres",
+    "MDX content collections",
+    "Google Gemini over raw fetch, no SDK",
+    "pdf-parse and pdfkit",
+    "exceljs",
+    "nodemailer",
+    "svix for webhook verification",
+    "GSAP and Lenis",
+    "bcryptjs"
+  ],
+  "status": "Live",
+  "summary": "Patients book an appointment online, then sign in to see their own records, prescriptions, invoices and notifications in one place, with dependants such as a child or an elderly parent held under the same login. Reception and practice staff run the working day from the other side of it: the calendar, check in, billing and invoices, patient messages, reminders and satisfaction surveys. Clinical documents that are uploaded get read automatically, so a sick note or a prescription lands in the right patient's file with its key details already pulled out.",
+  "title": "Kuilsriver Doctors practice platform",
+  "whatIBuilt": [
+    {
+      "heading": "The public site and the booking front door",
+      "body": "Home, about, team, contact, FAQ, fees and medical aids, privacy and editorial policy, plus 16 service pages and 25 articles held as MDX content collections. Booking is public at /book, and a booking reference lookup lets someone check a confirmed appointment from the public side of the site. The routing is deliberate rather than default: trailing slashes are handled by a middleware 301 instead of Astro's 'never' setting, because 'never' returns a 404 before middleware can redirect, and two renamed service URLs keep permanent redirects so old links still land."
+    },
+    {
+      "heading": "The patient portal and the family members module",
+      "body": "Signed in patients get a dashboard, their bookings, records, prescriptions, billing, notifications and a profile. The family members module lets one login hold and manage dependants, a child or an elderly parent, instead of forcing a second account on someone who will never use it. Authentication runs on Clerk with catch-all login and signup routes, so account handling is not something I hand-rolled on a system that holds medical records."
+    },
+    {
+      "heading": "The reception and staff back office",
+      "body": "The staff side covers the calendar, a dashboard and overview, the patient list and patient detail, reports and settings. Sitting inside it is a reception sub-application built around how a front desk actually works: appointments, billing and invoices including invoice creation and per-invoice views, messages, bulk messages, patient lifecycle, reports, surveys and check in."
+    },
+    {
+      "heading": "Role based access control",
+      "body": "src/lib/permissions.ts defines six roles, super_admin, admin, practice_manager, reception, nurse and staff, against eight permission areas covering patients, bookings, invoices, blog, pages, settings, research and system. Requests pass through a 533 line middleware, and the sitemap is filtered so no authenticated path is ever advertised to a crawler. A nurse and a receptionist do not need the same reach over invoices or system settings, and in a practice that holds medical records the difference has to be real rather than cosmetic."
+    },
+    {
+      "heading": "Billing, reminders and the scheduled work",
+      "body": "Invoices are generated, rendered to PDF and emailed from dedicated modules, with a separate path for patient facing invoices and a manual remind now action against a single invoice. Scheduled routes handle invoice processing, invoice reminders, patient lifecycle sync, reminder processing and chasing missing patient information, driven by an external scheduler that the deployment guide documents. That guide also carries a capitalised guard against running the development seed against the remote database, because the seed holds mock patient data, and fictional patients are the last thing you want in a live medical system."
+    },
+    {
+      "heading": "Content and feedback the practice owns",
+      "body": "A small CMS sits over the marketing pages, with read and write endpoints, an admin editor and a page_content migration behind it, so the practice can change its own copy. Patient satisfaction surveys are sent individually or in batches, results are collected, and patients answer through a tokenised public route with no login. 65 Postgres migrations hold the schema for all of it, including the patient satisfaction migration and the appointment overlap trigger."
+    }
+  ]
+}

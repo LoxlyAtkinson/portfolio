@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://loxlyatkinson.github.io/portfolio/sitemap.xml

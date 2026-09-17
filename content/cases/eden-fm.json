@@ -1,0 +1,114 @@
+{
+  "slug": "eden-fm",
+  "title": "Eden FM Platform",
+  "client": "Eden FM",
+  "sector": "Community radio and broadcast media",
+  "status": "Live",
+  "period": "November 2025 to September 2026",
+  "role": "Sole engineer, from first commit to production deploy",
+  "liveUrl": "https://my.edenfm.co.za/",
+  "liveLabel": "my.edenfm.co.za",
+  "summary": "A community radio station runs its day from one place. Listeners message the station and their requests, birthdays, dedications and fundraising pledges are answered in the same thread and filed as records someone can act on. Presenters open one console to see what listeners have sent, check the weather and the regional news, record in three languages and set their schedule, while managers, advertisers and referral partners each have their own way in.",
+  "problem": "Eden FM takes in high-volume inbound listener contact: requests, dedications, birthdays, prayer requests, and pledges during fundraising drives. It arrives as free text in one thread per person, with no automated triage and no structured record behind it. The same station also runs an on-air presenter workflow, an advertiser programme and a referral programme, and this platform was built to hold all of it in one place.",
+  "whatIBuilt": [
+    {
+      "heading": "The listener WhatsApp line",
+      "body": "A listener sends a request, a birthday, a dedication or a prayer request to the station's number and gets a reply in the same thread. Behind that reply the message is classified and filed, so it reaches the presenter on the Requests and Inbox modules of their console instead of staying in a chat log. During a fundraising drive the same thread takes pledges: the amount is read out of the message and confirmed back, reminders go out with payment details, and a follow-up and a thank-you close it off. When a conversation needs a person it escalates, and the escalation is tracked in the admin console."
+    },
+    {
+      "heading": "A 17-module on-air console driven from one manifest",
+      "body": "Presenters work from a console of 17 modules, covering requests, inbox, pledges, news and weather, assignments, recordings, the content schedule, compliance and the rest. All 17 are declared once, as a typed array in src/lib/presenterNav.ts. Each entry carries its own permission key, a mobile placement rule of tab bar, overflow menu or hidden, a management-only flag and command-palette keywords, and that single array drives the desktop sidebar, the mobile tab bar, the overflow menu and the command palette together. Adding a module is one entry, and a module a presenter is not permitted to see is gated in the same place it is declared, so those four surfaces cannot disagree about who sees what."
+    },
+    {
+      "heading": "A trilingual recording studio and a regional news wire",
+      "body": "The station broadcasts in Afrikaans, English and Xhosa, so the studio gives each broadcast a dedicated time slot per language. A presenter records in the page, names the take and files it against ten categories plus a custom one, and it can be filtered later by category, date range or presenter. A teleprompter runs in the same view with adjustable scroll speed, so each presenter reads at their own pace. A news wire covering the Klein Karoo through Knysna, George and Mossel Bay suggests headlines and ready-to-read copy and saves the chosen story straight into the presenter's selected slot and language, so prep flows into the recording."
+    },
+    {
+      "heading": "Listener analytics in plain language",
+      "body": "Station managers ask questions of the message history in ordinary English and get counts back: inbound messages, unique people, conversations and requests over a chosen period, a top-20 list of the most regular listeners, a breakdown by request type such as birthdays, dedications and prayer requests, a per-listener engagement trend, and a heatmap of which days and which hours people make contact. It is the same conversational data the bot already handles, read back as audience research rather than as a chat log."
+    },
+    {
+      "heading": "Advertisers, referral partners and institutions",
+      "body": "Advertisers register themselves, submit a campaign with uploaded assets and see their own dashboard and reports, and station management reviews each submission and can decline it. The referral programme runs alongside it: partners register, refer, earn points against a leaderboard and redeem rewards, with a partner hierarchy behind it recording who referred whom. Schools and businesses come in as institutions with their own members, bulk member upload and a membership claim flow. Seven authenticated roles in total, each behind its own dashboard, across 28 routes."
+    },
+    {
+      "heading": "Documentation delivered to the station",
+      "body": "Two illustrated feature guides went to the station, written for presenters and management. The eight-page guide dated February 2026 walks through the recording flow, from finding the record control to naming and categorising a take, and through content scheduling. The presenter dashboard guide is not assembled by hand: it is rendered from HTML to PDF by a script kept in the repository, with eight rendered page screenshots stored alongside it as a check that the document still builds correctly after a change. Every one of the 50 production cron jobs is documented with its schedule, what it does, and the migration file that created it."
+    }
+  ],
+  "hardPart": {
+    "heading": "Getting structured records out of a free-text chat thread",
+    "body": "WhatsApp only allows polls inside groups you administer, so there was no way to put a poll in front of a listener in a one-to-one thread. The answer was to stop treating the chat as a message log and treat it as the input surface for structured records: the bot asks the question in the ordinary flow of the conversation, the listener answers however they like, and the free-text answer is captured into a central record that can be categorised and counted. The same approach carries the pledge flow, which is harder, because a pledge is not one message: it is a state machine living across days that has to recognise the commitment, confirm the amount back to the person, record who pledged, remind with payment details, follow up if payment has not arrived, thank the donor once it has, and escalate to a human when the conversation goes somewhere a bot should not. That is why update-pledge-from-conversation exists as its own edge function alongside create-pledge, send-pledge-reminders, update-pledge-status and resolve-pledge-escalation, and why polling has the matching set in chatbot-poll-handler, poll-vote, poll-results and send-poll-follow-ups. The conversation is what moves the record, not a form. Because that parse is the only thing standing between a chat message and a database row, the bot's own behaviour is reviewed on a schedule rather than trusted: reflection-loop runs hourly under the auto-train-reflection cron, and scan-conversation-trends, summarize-whatsapp-conversation and conversation-analysis-digest sit alongside it, so a misreading shows up as a pattern in the review rather than as one listener's bad experience nobody sees. Once every conversation has a record behind it, the station's whole message history becomes something a manager can query in plain language."
+  },
+  "numbers": [
+    {
+      "value": "17",
+      "label": "modules in the presenter console, declared once",
+      "source": "src/lib/presenterNav.ts, typed union at lines 21-37 and array entries at lines 55-212; grep -c returns 17"
+    },
+    {
+      "value": "371",
+      "label": "edge functions in the codebase, each with an entrypoint",
+      "source": "find over supabase/functions at maxdepth 1 returns 371 directories, and the index.ts count at maxdepth 2 matches it"
+    },
+    {
+      "value": "246",
+      "label": "database tables across 534 migration files",
+      "source": "deduplicated CREATE TABLE grep over supabase/migrations; ls of the migrations directory"
+    },
+    {
+      "value": "50",
+      "label": "production cron jobs, all active",
+      "source": "docs/cron-registry.md line 3, recorded against the live prod cron.job list as of 2026-06-16"
+    },
+    {
+      "value": "7",
+      "label": "authenticated roles across 28 routes",
+      "source": "route declarations in src/App.tsx lines 152-181, and the role dashboards behind them"
+    },
+    {
+      "value": "583",
+      "label": "TypeScript and React source files, 456 of them components",
+      "source": "find over src for .ts and .tsx, and over src/components for .tsx"
+    },
+    {
+      "value": "221",
+      "label": "commits, 2025-11-18 to 2026-09-02",
+      "source": "git rev-list --all --count in the canonical repository; git log --reverse and git log -1 for the dates"
+    },
+    {
+      "value": "457",
+      "label": "written engineering learnings, indexed by category",
+      "source": "directory counts under Learnings/: 212 problem-resolutions, 128 process-improvements, 71 technology-insights, 46 anti-patterns"
+    }
+  ],
+  "stack": [
+    "React 18",
+    "TypeScript",
+    "Vite",
+    "Tailwind CSS",
+    "shadcn/ui",
+    "Supabase (Postgres, Auth, Storage)",
+    "Deno edge functions",
+    "Capacitor 8 (Android)",
+    "ffmpeg.wasm",
+    "Google Gemini",
+    "ElevenLabs",
+    "2Chat WhatsApp API",
+    "Inngest",
+    "Vitest"
+  ],
+  "proof": [
+    "my.edenfm.co.za returns 200 on a live probe, and a bogus path on that host returns a real 404 rather than a catch-all page (probed 2026-09-17).",
+    "Dated JSON verification receipts are kept in .claude/evidence/, including a production verifier run against the chatbot digest dated 2026-05-25.",
+    "The last production change of 2026-09-02 was only recorded as done after a real end-to-end round trip was run twice on test accounts, which is what the session state records as closing it.",
+    "docs/FEATURE_LIBRARY_OUTCOME_MAP.md writes all 44 features outcome-first, as user can do X and see Y, each with its UI entry point, its feedback state, its dependencies and a live, in-progress or planned status, across 10 domains.",
+    "The presenter dashboard guide is rendered from HTML to PDF by a script in the repository, with eight per-page rendered screenshots kept in docs/feature-guide/verify/ as a visual check that the build still produces a correct document."
+  ],
+  "honestLimits": [
+    "371 edge functions is a count of what is in the codebase. I did not verify how many of them are live in the Supabase project, so I do not call them deployed.",
+    "No usage figure appears on this page. A registration count exists as a CSV export, but it is a client-governed snapshot that is not cleared for publication, and there is no audience measurement, no pledge collection report and no uptime monitoring anywhere in the tree, so I make no claim about listener numbers, message volume, pledge rates or reliability, and I am not going to invent any.",
+    "No client testimonial, quote or reference exists for this build. None is used here.",
+    "The repository began life as a Lovable scaffold and the untouched scaffold README is still in it. It was then built out by hand into what it is now, and I would rather say that than hide it."
+  ]
+}

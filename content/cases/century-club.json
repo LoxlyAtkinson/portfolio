@@ -1,0 +1,105 @@
+{
+  "slug": "century-club",
+  "title": "Century Club",
+  "client": "Century Club",
+  "sector": "Serviced apartments and short-stay hospitality, Century City, Cape Town",
+  "status": "Live",
+  "liveUrl": "https://centuryclub.co.za/",
+  "liveLabel": "centuryclub.co.za",
+  "period": "March to August 2026",
+  "role": "Sole engineer, design through production",
+  "summary": "The client changes what the public sees without needing a developer. They edit a price, swap the photo at the top of the homepage, take a unit off while it is out of service, or write a post and date it for next week, and the live site updates itself. Guest enquiries, invoices and the photo library sit in the same back office, so the whole thing is run from one place.",
+  "problem": "The site is the public shop window for short-stay apartments across five complexes in Century City, positioned in the brief as a curated concierge offer. The scope was written out as nine capabilities in plain language in the handover guide: the client edits prices, photographs, availability and posts directly, and guest enquiries, invoicing and media are handled in the same place rather than in separate tools. The requirement underneath all nine was that a save by the client reaches the public page with no developer in the loop.",
+  "whatIBuilt": [
+    {
+      "heading": "A back office with seventeen screens",
+      "body": "Seventeen admin pages exist as real routes: dashboard, homepage editor, apartment list and editor, blog and blog editor, media, leads list and detail, invoices list, create and detail, settings, users list, create and edit, and login. The homepage editor covers the hero photo and the choice of featured apartments. Apartment management covers prices, beds, baths, photos, amenities, descriptions and an on or off switch for units out of service. Team invites are role scoped, so a marketing account can edit the blog and nothing else."
+    },
+    {
+      "heading": "A site that republishes itself",
+      "body": "The client saves in the CMS, a database trigger marks the build state dirty, an edge function fires a GitHub repository dispatch, CI builds the static export and ships it to the live host over FTP, then clears the flag and stamps the build time. No developer machine is in the loop at any point. A ten minute cron survives only as a safety net, not as the mechanism. Because the output is a static export, the public pages are flat files with no application server to keep alive."
+    },
+    {
+      "heading": "An enquiry inbox and branded invoicing",
+      "body": "Guest enquiries land in an inbox with search, a status filter for new, contacted and converted, per lead notes and CSV export. Invoicing is auto numbered in the client's own series, tracks sent, paid and overdue, and shows a monthly total. A daily cron function sends reminders on the schedule the settings screen defines. That settings screen also holds bank details, the auto send day, reminder timing and the email templates, so the automation is the owner's to change rather than mine."
+    },
+    {
+      "heading": "Scheduled publishing and a media library",
+      "body": "Blog posts can be written now and dated forward, and a scheduled function publishes them when their time arrives. The media library accepts JPEG, PNG, MP4 and PDF and converts uploaded images to WebP automatically, so the client uploads the file they have and the site serves the format it wants. Storage buckets and their access policies are defined in their own migration rather than configured by hand in a dashboard. Eight edge functions back the whole back office, covering invites, password resets, invoice email, reminders, enquiry email, scheduled posts, the daily invoice cron and the republish trigger."
+    },
+    {
+      "heading": "The public site",
+      "body": "Thirteen real listings, plus about, amenities, area guide, concierge, blog, FAQ, contact, privacy and terms, and three search landing routes covering Century City and Cape Town accommodation terms. The build produces 59 HTML files from 103 TypeScript and TSX source files. The brief set the positioning as curated concierge, and the route set carries a dedicated concierge page and an area guide rather than folding both into the homepage. All thirteen listings were verified returning 200 on the live host during the proving run, and a stale test listing was verified gone at 404 in the same pass."
+    },
+    {
+      "heading": "A design pass re-graded by a critic that had not seen the fixes",
+      "body": "I ran the design audit as a loop, and the second pass was deliberately blind to the first pass's own work. It found three of the earlier fixes wrong. One was a bg-black left on the body element that silently voided an entire OKLCH palette conversion while still compiling cleanly. Another was a homepage hero wrapped so that it rendered client side only, which meant the static export shipped with no hero markup in it at all. The final pass ran 986 checks against my own rubric with 68 failures left standing, 39 of them locked brand items that were not mine to change."
+    }
+  ],
+  "hardPart": {
+    "heading": "A delete that reported success and left the page live",
+    "body": "Deleting a property from the back office looked like it worked: the row disappeared, the list refreshed, and the public site carried on serving the unit as if nothing had happened. The cause was a fire and forget republish call, where the admin screen dispatched the request and then routed away, the unmount aborted it mid flight, and a bare catch swallowed the failure so nothing ever surfaced. Creating a property worked only by accident, because that screen navigated back to the same route and the request survived long enough to land. The blog and homepage editors never called the republish trigger at all, which meant a better call site would only have fixed the screens I happened to be looking at. So I moved it out of the client entirely and into the database: a statement level trigger sets the build state to dirty in the same transaction as the edit itself, in migration 20260817000002, so the flag either commits with the change or the change does not commit, and no screen anyone adds later can forget to raise it. The proof was a frozen clock. The dirty timestamp was held unchanged through six consecutive skipped runs, a unit was toggled at 13:07:04, and the scheduled run at 13:48:24 read back 2026-08-17T13:07:04.061359+00:00, matching to the microsecond, then built and deployed with no manual dispatch. I rebuilt the publish progress UI on the same principle: it calls a page published only after fetching it, and treats a delete as done only when the URL returns 404, so the status bar cannot go green while the public page is still there."
+  },
+  "numbers": [
+    {
+      "value": "17",
+      "label": "Admin screens in the back office",
+      "source": "counted as page.tsx files under frontend/src/app/admin, recounted on disk"
+    },
+    {
+      "value": "13",
+      "label": "Property listings, every one verified returning 200 live",
+      "source": "properties.json and listings-snapshot.json both hold 13, plus the 2026-08-17 proving run"
+    },
+    {
+      "value": "59",
+      "label": "HTML pages in the built static export",
+      "source": "file count in the frontend build output directory"
+    },
+    {
+      "value": "103",
+      "label": "TypeScript and TSX source files",
+      "source": "file count under frontend/src"
+    },
+    {
+      "value": "8",
+      "label": "Supabase edge functions behind the back office",
+      "source": "directory listing of frontend/supabase/functions"
+    },
+    {
+      "value": "986",
+      "label": "Checks in the final pass of my own internal design audit, with 68 failures left standing",
+      "source": "project session state for the design loop"
+    },
+    {
+      "value": "10",
+      "label": "Written engineering learnings indexed from this build",
+      "source": "7 problem resolutions and 3 process improvements in the project's Learnings directory"
+    }
+  ],
+  "stack": [
+    "Next.js 16.1.6 with static export",
+    "React 19.2.3",
+    "TypeScript 5",
+    "Tailwind v4",
+    "Framer Motion 12, GSAP and Lenis",
+    "hls.js",
+    "Supabase Postgres, edge functions and storage",
+    "Google GenAI",
+    "jsPDF and dnd-kit",
+    "GitHub Actions repository dispatch, deployed over FTP"
+  ],
+  "proof": [
+    "The database trigger was proven against a frozen clock, not assumed. The dirty timestamp was held through six consecutive skipped runs, a unit was toggled at 13:07:04, and the 13:48:24 scheduled run read back 13:07:04.061359 to the microsecond, then built and deployed with no manual dispatch.",
+    "All 13 listings were verified returning 200 on the live host in the same proving run, and a stale test listing was verified gone at 404.",
+    "The publish UI confirms published by fetching the page rather than trusting the database flag, and treats a delete as done only at HTTP 404.",
+    "The blind design re-audit re-checked the first round's own work and found three of its fixes wrong, including a bg-black that silently voided an OKLCH palette conversion while still compiling, and a hero that shipped zero markup in the static export.",
+    "centuryclub.co.za was probed on 2026-09-17 and returned 200 serving its own page title."
+  ],
+  "honestLimits": [
+    "No booking, occupancy, enquiry or traffic figures exist for this site, and I am not going to invent any. Every number here is counted off disk or off a live request, and I recounted each one before publishing this page.",
+    "The public site takes enquiries. It is not a booking engine and there is no checkout in it. Invoicing lives in the back office and tracks its own states, it does not process card payments.",
+    "The design audit is scored against a rubric I wrote and ran myself. It is an internal quality gate, not an external rating and not a user study, which is exactly why the second pass was run blind to the first.",
+    "There is no testimonial and no named reference for this work. I do not have one for any client, and I would rather say so than manufacture one."
+  ]
+}

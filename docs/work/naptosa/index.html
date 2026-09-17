@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NAPTOSA Western Cape member platform, NAPTOSA Western Cape | Loxly Atkinson</title>
+<meta name="description" content="Members of a provincial teachers&#39; union can ask a question, register, or raise a workplace problem in English or Afrikaans, from the phone they already carry. When something serious comes up, a person at the union is pulled in with the whole conversation attached, and staff then work that matter through one shared case file with a number, an owner and a timeline. The union&#39;s public site sits on the same system, in both languages.">
+<meta name="author" content="Loxly Atkinson">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="NAPTOSA Western Cape member platform, NAPTOSA Western Cape | Loxly Atkinson">
+<meta property="og:description" content="Members of a provincial teachers&#39; union can ask a question, register, or raise a workplace problem in English or Afrikaans, from the phone they already carry. When something serious comes up, a person at the union is pulled in with the whole conversation attached, and staff then work that matter through one shared case file with a number, an owner and a timeline. The union&#39;s public site sits on the same system, in both languages.">
+<meta property="og:site_name" content="Loxly Atkinson">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NAPTOSA Western Cape member platform, NAPTOSA Western Cape | Loxly Atkinson">
+<meta name="twitter:description" content="Members of a provincial teachers&#39; union can ask a question, register, or raise a workplace problem in English or Afrikaans, from the phone they already carry. When something serious comes up, a person at the union is pulled in with the whole conversation attached, and staff then work that matter through one shared case file with a number, an owner and a timeline. The union&#39;s public site sits on the same system, in both languages.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9632;</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="casehead">
+  <div class="wrap">
+    <a class="back" href="../../index.html">All work</a>
+    <h1>NAPTOSA Western Cape member platform</h1>
+    <div class="sub">
+      <span class="pill live">Live</span>
+      <span class="pill">Trade union, education and member services</span>
+      <span class="pill">June 2025 to present</span>
+      <span class="pill">Sole engineer, discovery through production</span>
+      <a class="extlink" href="https://naptosawc.co.za" target="_blank" rel="noopener">naptosawc.co.za</a>
+    </div>
+    <p class="summary">Members of a provincial teachers&#39; union can ask a question, register, or raise a workplace problem in English or Afrikaans, from the phone they already carry. When something serious comes up, a person at the union is pulled in with the whole conversation attached, and staff then work that matter through one shared case file with a number, an owner and a timeline. The union&#39;s public site sits on the same system, in both languages.</p>
+  </div>
+</header>
+
+<div class="factbar"><div class="facts">
+      <div class="fact">
+        <span class="n">956</span>
+        <span class="l">Commits on the main branch since June 2025</span>
+        <span class="src">git log on the repository&#39;s main branch</span>
+      </div>
+      <div class="fact">
+        <span class="n">25</span>
+        <span class="l">Gates in the guarded deploy pipeline, each naming the failure it prevents</span>
+        <span class="src">scripts/deploy-guarded.py</span>
+      </div>
+      <div class="fact">
+        <span class="n">82</span>
+        <span class="l">Supabase edge functions</span>
+        <span class="src">directory listing of supabase/functions</span>
+      </div>
+      <div class="fact">
+        <span class="n">271</span>
+        <span class="l">Database migrations, creating 106 distinct tables</span>
+        <span class="src">the migrations tree, with CREATE TABLE statements deduplicated</span>
+      </div>
+      <div class="fact">
+        <span class="n">56</span>
+        <span class="l">Prerendered public routes, 20 of them Afrikaans and 15 of them articles</span>
+        <span class="src">dist-routes/prerender-routes.json</span>
+      </div>
+      <div class="fact">
+        <span class="n">63</span>
+        <span class="l">Page components in the staff back office</span>
+        <span class="src">file count under src/pages/staff</span>
+      </div>
+      <div class="fact">
+        <span class="n">158</span>
+        <span class="l">Playwright and test spec files</span>
+        <span class="src">file count under the tests tree</span>
+      </div>
+      <div class="fact">
+        <span class="n">755</span>
+        <span class="l">Written engineering learnings, indexed by category</span>
+        <span class="src">file count under the Learnings tree</span>
+      </div>
+</div></div>
+
+<main id="main">
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><h2>The situation</h2></div>
+    <div class="prose"><p>The provincial office&#39;s web presence was a WordPress brochure site with no member portal and no login system. Anything a member needed from a person happened away from the website. The job was to give members a route in that works on a phone, in either language, and to give the office one place to see and answer what comes back.</p></div>
+    <div class="sec-body"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><h2>What I built</h2></div>
+    <div class="prose">
+      <h3>A public site where Afrikaans is not an afterthought</h3>
+      <p>56 public routes, 20 of them Afrikaans and 15 of them articles, every one prerendered so the page arrives as real HTML rather than an empty shell waiting on JavaScript. That is what makes the Afrikaans pages readable to a search engine and to someone on a slow connection, and it is why language parity is treated in this build as a credibility requirement rather than a translation layer. The build generates its own article route list, sitemap and llms-full.txt before every compile, and separate verifier scripts check the output before anything is uploaded. Pages cover membership, fees, joining, governance, leadership, pay scales, a school representative toolkit, publications, events and press.</p>
+      <h3>A WhatsApp assistant with a deliberately small job</h3>
+      <p>The assistant does four things and no more: answer questions from the union&#39;s own material, escalate to a person, help someone register, and carry member representative communications. Every answer drawn from that material carries a verification note, so nothing it says reads as final authority. A distress phrase such as &quot;I have been dismissed&quot; fires a structured email to staff carrying the member&#39;s contact, name, member status, severity, the question and the last stretch of the conversation. If a member then goes quiet mid-matter, the bot sends one &quot;still there?&quot; ping at sixty minutes and, after a further thirty minute grace, sends the escalation anyway, so a serious matter is never lost to silence.</p>
+      <h3>Nothing gets filed behind a member&#39;s back</h3>
+      <p>When a member who already has an open case sends a new message, the assistant asks them to confirm before attaching it to that case. It does not route it automatically, because the member is the one who knows whether this is the same matter. A follow-up message inside fifteen minutes appends to the case just created instead of opening a duplicate, and the registration path sends exactly one staff email per subject and none at all on a curiosity turn, with a negation guard so &quot;do not sign me up&quot; can never be read as commitment.</p>
+      <h3>A back office where a case is a real record</h3>
+      <p>63 page components under the staff area: case intake board, CRM inbox, casework tabs, case detail drawer, reminder editor, close report panel, workshop planner, social media manager and interaction logs. Cases carry their own numbering, an activity timeline, an assigned owner, witnesses, attachments, reminder rules and audit rows. Workshop attendance is paid through PayFast, with an initiate function, an instant transaction notification handler, a receipt email, payment reminders and an hourly watchdog that keeps alerting on any payment row a human still has to decide about. One commit on the main branch exists only because the case panel was unreachable in phone landscape and at 200% browser zoom.</p>
+      <h3>An interface that does not assert things nobody said</h3>
+      <p>The staff console&#39;s WhatsApp connection indicator was a compile-time `connected: true` literal. I replaced it with a monitored signal, backed by two database functions and a read-only staff-authenticated edge function, resolving to healthy, connecting grace, reconnecting or disconnected, where reconnecting is transitional and never paints green. The staleness threshold is 1,800 seconds, three times the verified ten minute health cron, so two missed ticks still read as fresh, and a stale row says monitoring is not reporting rather than the account is down. The same rule runs through the casework screens, where commits on the main branch exist to stop the case panel asserting things nobody said and to make the critical alerts panel tell the truth.</p>
+      <h3>A data layer written by hand</h3>
+      <p>271 migrations creating 106 distinct tables, with no ORM anywhere in the stack. The SQL is hand-written and versioned, and the same discipline applies to the 82 Supabase edge functions that sit behind the site, the assistant and the back office. Alongside it, 158 Playwright and spec files, and 755 written engineering learnings indexed by category: anti-patterns, technology insights, problem resolutions, process improvements and verification failures. Each learning exists because something went wrong once and a rule was written so it could not go wrong the same way again.</p>
+    </div>
+    <div class="sec-body"></div>
+  </div>
+</section>
+
+<section class="hardpart">
+  <div class="wrap">
+    <span class="tag">The hard part</span>
+    <h2>Proving a deploy landed, when every route on the host answers 200</h2>
+    <p>The host this site runs on answers 200 to everything: a real page, a title-less shell, a path that does not exist, because the single-page fallback serves the homepage for anything it cannot find. So the usual post-deploy check, curl a few routes and look for 200, cannot tell a deploy that landed from one that uploaded nothing. I wrote scripts/deploy-guarded.py in answer to it, a Python pipeline of 25 gates mined out of the project&#39;s own written learnings and session log, each gate carrying a one-line INCIDENT comment naming the recorded failure it prevents, so that nobody deletes a gate without first reading the bill it was written against. Three rules sit at the top of the file and every gate follows from them: never trust an exit code, because a producing stage is believed only once its artifact has been inspected; never trust a success message, because only the live bytes, fetched back and hashed against what was built, close a deploy; never trust a 200. Gate 21 is the one that actually closes a deploy, and it does four things in order, fetch the live homepage, read the content-hashed bundle name the HTML references, fetch that chunk, and sha256-compare the bytes that come back against the file that was built. The pipeline also carries a live-request budget of 14 with 0.6 seconds between calls, after roughly 25 rapid smoke requests got the deploying address blocked for hours, and a 450-file ceiling per upload burst, after a 529-file burst tripped the host&#39;s abuse rule. On its first two real runs it refused to deploy, both times correctly, once over uncommitted files and once over a port it found held and would not guess about, and the two production deploys it has allowed since were closed by byte identity rather than by an HTTP 200.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><h2>Built with</h2></div>
+    <ul class="tags"><li>React 18</li><li>TypeScript</li><li>Vite</li><li>Tailwind CSS</li><li>shadcn-ui and Radix UI</li><li>TanStack Query</li><li>react-i18next (English and Afrikaans)</li><li>Supabase (Postgres and Deno edge functions)</li><li>Clerk</li><li>Google Gemini</li><li>Unipile (WhatsApp and email transport)</li><li>PayFast</li><li>Playwright</li><li>Prerendered static generation</li><li>Python (the deploy pipeline)</li></ul>
+    <div class="sec-body"></div>
+  </div>
+</section>
+
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><h2>How it was proven</h2></div>
+    <ul class="checks">
+      <li>Probed live on 17 September 2026: the homepage, /membership and /af/about each returned 200 with three distinct correct titles, one of them in Afrikaans.</li>
+      <li>Both production deploys through the guarded pipeline were closed by byte identity, the live bundle chunk fetched back off the host and sha256-matched against the file that was built. Neither was closed by an HTTP 200.</li>
+      <li>The pipeline refused to deploy on two of its first real runs, both times correctly, and both refusals are recorded in the project log.</li>
+      <li>One mandated end-to-end script is the only sanctioned way to test the assistant, and hand-rolled synthetic webhook posts are explicitly forbidden. The project record also states plainly what that harness cannot prove: inbound delivery from the provider is bypassed, so it is never tested by it.</li>
+      <li>Accessibility is fixed in the commit log rather than claimed: one commit on the main branch records that the case panel was unreachable in phone landscape and at 200% zoom.</li>
+    </ul>
+    <div class="sec-body"></div>
+  </div>
+</section>
+
+<section class="plain">
+  <div class="wrap">
+    <div class="sec-head"><h2>What this does not prove</h2></div>
+    <div class="bounds">
+      <ul>
+        <li>No member count appears anywhere on this page. The membership figures in my own project files contradict each other and none of them traces back to a register, so I publish none of them.</li>
+        <li>No usage figures exist here either. No conversation volume, no case count, no portal sign-in count. The case numbers I can show are verification records created with test data, and I am not going to present them as production volume.</li>
+        <li>No outcome percentages and no analytics. Response-time and resolution targets were written at discovery and never measured after launch, so they are targets, not results. I have no first-party analytics for the site, and the only search figures on file are third-party estimates from a single date, which is not the same thing as knowing what the site does.</li>
+        <li>The platform is live and still under active work. It is not a finished, handed-over product.</li>
+      </ul>
+    </div>
+    <div class="casenav" style="margin-top:2.5rem">
+      <a href="../eden-fm/"><span class="lbl">Previous</span>Eden FM Platform</a>
+      <a href="../trio-data/" style="text-align:right"><span class="lbl">Next</span>Trio Data Candidate Intelligence Platform</a>
+    </div>
+  </div>
+</section>
+
+</main>
+<div class="wrap">
+<footer class="foot">
+  <span>Loxly Atkinson, Cape Town. Built and published by hand.</span>
+  <span>Every link verified 17 September 2026. <a href="../../index.html">Back to the top</a></span>
+</footer>
+</div>
+</body>
+</html>

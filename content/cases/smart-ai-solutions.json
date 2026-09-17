@@ -1,0 +1,114 @@
+{
+  "slug": "smart-ai-solutions",
+  "title": "Smart AI Solutions",
+  "client": "Own practice, Smart AI Solutions",
+  "sector": "AI consultancy and automation, South Africa",
+  "status": "Live",
+  "liveUrl": "https://www.smartaisolutions.co.za/",
+  "liveLabel": "smartaisolutions.co.za",
+  "period": "November 2025 to present",
+  "role": "Sole engineer, design through production",
+  "summary": "This is my own practice's public site and the office behind it, in one build. Anyone can read what I do and what it costs, book a call, or run a readiness check on their own business, and the enquiry lands where it is actually worked, through to the reports and site audits a client gets sent. The public pages and the back office are one system, so there is no second place to keep in step.",
+  "problem": "This one had no client and no brief. It had to do two jobs at once: be the public shopfront people find and read, and be the place enquiries, clients, audit runs and reports are handled day to day. It is also the piece of work I point at when someone asks whether I ship, so the verification bar I use on client work had to apply to my own.",
+  "whatIBuilt": [
+    {
+      "heading": "Roughly 390 public pages that are built, not hand-made",
+      "body": "The public side carries service, pricing, industry, comparison and location pages, a programmatic set keyed by service and by city, a blog with an RSS feed, and a machine-readable llms.txt layer for AI assistants. All of it is prerendered to static HTML before upload, so a visitor gets real markup rather than an empty shell waiting on JavaScript. The sitemap holds 394 entries and the last recorded deploy prerendered 393 of 393 pages with 0 failures."
+    },
+    {
+      "heading": "The back office behind the brochure",
+      "body": "Behind a login sits the part that does the work: a CRM with editable lead tiers, a client registry, GEO audit runs, scheduled reports and live chat, all under a six-group navigation covering Insight, Pipeline, Delivery, Content, Money and System. It is the same codebase and the same deploy as the public site, so there is no second system to keep in step. That navigation was confirmed rendering on production, not just in local development."
+    },
+    {
+      "heading": "Booking, and the self-serve tools in front of it",
+      "body": "Availability, creating a booking, cancelling one, letting someone manage their own, and the reminders that follow are all server-side functions inside the same system. Alongside them the public side runs an AI readiness assessment, a lead-magnet library and a voice agent, so a visitor can get something useful out of the site before they ever speak to me."
+    },
+    {
+      "heading": "Reporting and site audits",
+      "body": "The back end generates and sends client reports, pulls analytics, takes backlink snapshots, probes citations, scans websites, publishes blog posts, processes sequences, takes CRM lead submissions and assembles an operator digest. Those run as edge functions on 70 Postgres migrations, in the same repository as the public pages rather than in a separate reporting tool."
+    },
+    {
+      "heading": "A build chain that refuses to ship broken work",
+      "body": "Building the site runs blog SEO validation, RSS generation, the sitemap, the llms.txt files, an AI-visibility verifier, asset copy and the prerender pass, in that order, so the checks are part of the build rather than something to remember afterwards. There is also a lint step whose only job is to catch em dashes, because house style should be enforced by a machine, not by memory."
+    },
+    {
+      "heading": "Every deploy leaves a receipt",
+      "body": "The proofs directory holds more than 40 named proof folders, one per piece of work, each recording what was expected and what was actually observed. The 27 August 2026 record shows 393 of 393 pages prerendered with 0 failed, six production routes returning 200 after upload, and a check that each newly shipped string is present in the uploaded bundle. The proofs are written for the version of me who comes back in three months and needs to know whether something was really verified or merely assumed."
+    }
+  ],
+  "hardPart": {
+    "heading": "Refusing to call a served chunk a rendered screen",
+    "body": "The failure that actually hurts on a deploy is not a 500. It is an upload that looks fine and quietly carries a stale build, so the new controls never reach the screen while every route still answers 200. So for the 7 September 2026 deploy I wrote the nine expectations, including what would count as a failure, before taking a single screenshot. Mid-run the login session I was testing with expired, so four of the nine could not be looked at. I could still show that the new JavaScript was being served from production, and that proves the deploy carried the work rather than proving the screens render it, so I wrote that distinction into the file, marked those four items failed, and scored the pass 5 of 9. Once the session was working again, all four were re-run against production and the checklist closed at 9 of 9. The same file records a false negative I caused myself, a PowerShell regex-escape bug that made five strings that were present report as absent, written down rather than quietly fixed. The order is the whole point: author the expectations first, then take the picture, then mark the picture against the list, because a checklist written after the screenshot will always pass."
+  },
+  "numbers": [
+    {
+      "value": "393 of 393",
+      "label": "Pages prerendered with 0 failures at the last recorded deploy",
+      "source": "docs/proofs/deploy-2026-08-27.md"
+    },
+    {
+      "value": "394",
+      "label": "URLs in the sitemap",
+      "source": "grep -c '<loc>' public/sitemap.xml"
+    },
+    {
+      "value": "396",
+      "label": "Prerendered HTML files in the build output",
+      "source": "find dist -name 'index.html' | wc -l"
+    },
+    {
+      "value": "64",
+      "label": "Page components",
+      "source": "find pages -name '*.tsx' | wc -l"
+    },
+    {
+      "value": "70",
+      "label": "Database migrations",
+      "source": "ls supabase/migrations | wc -l"
+    },
+    {
+      "value": "29+",
+      "label": "Server-side edge function directories in the repository",
+      "source": "ls supabase/functions"
+    },
+    {
+      "value": "222",
+      "label": "Commits, 28 November 2025 to 17 September 2026",
+      "source": "git log --oneline | wc -l, with first and last commit dates from git log"
+    },
+    {
+      "value": "40+",
+      "label": "Named proof folders, one per piece of verified work",
+      "source": "docs/proofs directory listing"
+    }
+  ],
+  "stack": [
+    "Vite",
+    "React 18.3",
+    "TypeScript",
+    "React Router 7.9",
+    "Tailwind CSS",
+    "Supabase (Postgres, auth, edge functions)",
+    "Three.js with React Three Fiber",
+    "PostHog",
+    "Anthropic SDK",
+    "Google GenAI",
+    "OpenAI Agents SDK",
+    "ElevenLabs",
+    "Express",
+    "Nodemailer"
+  ],
+  "proof": [
+    "A nine-item checklist for the 7 September 2026 deploy, authored before any capture. The first pass scored 5 of 9 with four explicit failures, because I would not convert a served JavaScript chunk into a claim about a rendered screen. Source: docs/proofs/deploy-2026-09-07/CHECKLIST.md",
+    "All four failed items were later re-run against production and the same checklist closed at 9 of 9. Same file.",
+    "Post-deploy smoke test on 27 August 2026: 393 of 393 pages prerendered with 0 failed, six production routes all returning 200 after upload, and each newly shipped string verified present in the uploaded bundle. Source: docs/proofs/deploy-2026-08-27.md",
+    "A false negative recorded against my own tooling: a PowerShell regex-escape bug made five strings that were present report as absent. Written into the proof file rather than silently corrected.",
+    "The home page, pricing page and blog all returned 200 on an independent probe on 17 September 2026, and a deliberately bogus path returned a real Page Not Found, so the 200s are genuine rather than a catch-all shell."
+  ],
+  "honestLimits": [
+    "There are no traffic, ranking, signup or conversion figures for this site and I am not going to invent any. PostHog is wired into the code, but no analytics numbers exist in the repository, so none are quoted here.",
+    "The 393 of 393 figure is a count of pages prerendered at one recorded deploy. It is not a claim about how many pages a search engine has indexed, and it says nothing about traffic to any of them. The edge-function figure is likewise a count of function directories in the repository, not a count confirmed running on the server.",
+    "No testimonial, review or star rating exists for this or any other piece of my work. None appears here because none has been collected.",
+    "The back office is behind a login, so a visitor can read the public site but cannot see the CRM, the audit runs or the reporting. If you want to see it, I will screen-share and walk you through the live one."
+  ]
+}
