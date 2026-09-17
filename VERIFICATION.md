@@ -69,3 +69,103 @@ All returned 200 under redirects:
 
 Control: `/this-does-not-exist` returned 404, so the 200s above are real routes and not a
 catch-all shell.
+
+---
+
+# The cinematic version
+
+**https://loxlyatkinson.github.io/portfolio/cinematic/**
+
+Verified 2026-09-17 with the scroll-craft harness on localhost, then again in a
+real browser against the live origin. The harness walks each act at six scroll
+positions and measures contrast on the composited page, which is the only way
+to check a page that has a different frame at every scroll position.
+
+## Three harness passes, all clean
+
+| Pass | Dead scroll | Frozen clip | Contrast | Console errors | Failed requests |
+|---|---|---|---|---|---|
+| Desktop 1280 | none | none, clip advances 0 to 5.03 | all cues clear 4.5:1 at their worst frame | 0 | 0 |
+| Phone 390 | none | none | all cues clear 4.5:1 at their worst frame | 0 | 0 |
+| Reduced motion | none | no clip fetched, correct | all cues clear 4.5:1 | 0 | 0 |
+
+## Two defects the first pass found, both fixed
+
+**The hero copy failed contrast on both viewports.** 4.12:1 at 1280 and
+**1.77:1 at 390 against a mean of 11.36**, which is the documented signature of
+one bright patch with nothing covering it: the practical lamp in the plate sat
+directly under the top line.
+
+The first fix was wrong. Brightening the type did nothing, because the problem
+was the block, not the ink. The hero carried an h1, a display title, a five row
+label table and two links, which is more than four text elements and something
+taste.md refuses outright. The engine's lead corner gradient is tuned for a
+short block and fades out by 72%, so the copy simply stood taller than the
+scrim reached. Fixed by trimming the hero to four elements, deepening the
+gradient, and banding it below 860px, which is what the engine already does for
+a trail anchor and does not do for a lead one.
+
+Re-measured: **7.24:1 desktop, 14.16:1 phone.**
+
+**The facts grid left empty trailing cells.** Six items in an auto-fit grid
+resolved to four columns at desktop, so two cells sat empty. Replaced with
+explicit column counts, because six divides by both three and two and every row
+then fills.
+
+## The pan rail overflow, checked by hand
+
+`devices.md` is explicit that the harness cannot catch a rail that does not
+overflow, and reports it as healthy. Measured from the report instead: the rail
+travels **3,076px at 1280** and **2,869px at 390**, both far above the half a
+viewport floor. The act is real travel, not a pinned still.
+
+## Live browser verification, on the deployed origin
+
+Checklist written before the capture, ticked against what the browser reported.
+
+| # | Must be true on the live URL | Result |
+|---|---|---|
+| 1 | All ten pages return 200, a bogus path returns a real 404 | PASS |
+| 2 | The hero clip has a source and its playhead advances on scroll | PASS, 0 to 3.00 of 5.04 |
+| 3 | The ledger stamps rows as the reader passes each system | PASS, 6 stamped by the collection act, 8 by the peak |
+| 4 | At the peak the rail becomes the gate and all 25 gates run | PASS, 25 rows on |
+| 5 | G21 reads REFUSED and the verdict is visible | PASS, `gate:refused` |
+| 6 | The close holds with content, headshot loaded | PASS, opacity 1, image loaded |
+| 7 | No console errors and no failed requests | PASS, zero of each |
+| 8 | No horizontal overflow | PASS |
+| 9 | The plain version is unaffected | PASS, still 200 |
+
+## The feel check
+
+Run against the contact sheets, then diffed against BRIEF.md.
+
+| Act | Intended | Felt | |
+|---|---|---|---|
+| 1 | Stillness | stillness | matches |
+| 2 | Recognition | recognition | matches |
+| 3 | Breadth | breadth | matches |
+| 4 | Weight | **brisk** | **diff** |
+| 5 | Silence | silence | matches, and reads as authored |
+| 6 | Refusal | refusal | matches, and it is the peak |
+| 7 | Restraint | restraint | matches |
+| 8 | Arrival | arrival | matches, and it resolves |
+
+**One honest diff.** Act 4 was meant to land as weight and reads as brisk. At
+1.4 viewport-heights the counted figures pass faster than they should for
+material that is supposed to feel heavy. It is left as built rather than
+padded, because the alternative is spending scroll on information rather than
+experience, which feel.md warns against. Recorded rather than quietly
+reconciled.
+
+The peak holds 14 of 53 sample positions, the most of any act, and is the
+largest visual change on the sheet. The act in front of it is deliberately
+almost empty.
+
+## What is not covered
+
+- **A real phone.** Headless Chrome cannot reproduce an iOS video decoder, its
+  autoplay policy, or Low Power Mode. The engine carries the priming logic for
+  this and it is unmodified, but a green run here says nothing about iOS.
+- **Keyboard traversal of the pinned peak** was not asserted. The peak carries
+  no focusable control, so the documented pinned-act focus trap does not apply,
+  but it was not tested.
