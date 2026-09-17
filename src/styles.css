@@ -165,7 +165,7 @@ a { color: inherit; }
 }
 .ledger-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
   gap: 1px;
   background: var(--rule);
   border-inline: 1px solid var(--rule);
@@ -549,26 +549,52 @@ footer.foot a { color: var(--ink-3); }
   background: var(--paper-2);
   border-bottom: 1px solid var(--rule);
 }
+/* Fact labels are full sentences, not one-word captions, so the cells need real
+   width. At minmax(160px) eight facts squeezed to one word per line. */
 .facts {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
   gap: 1px;
   background: var(--rule);
   border-inline: 1px solid var(--rule);
 }
-.fact { background: var(--paper-2); padding: 1.15rem var(--gutter) 1.1rem; }
+.fact {
+  background: var(--paper-2);
+  padding: 1.25rem clamp(1.1rem, 2.2vw, 1.6rem) 1.2rem;
+  display: flex;
+  flex-direction: column;
+}
 .fact .n {
   font-family: var(--mono);
-  font-size: 1.45rem;
+  font-size: 1.6rem;
   font-weight: 500;
-  letter-spacing: -.02em;
+  letter-spacing: -.025em;
   color: var(--accent);
-  line-height: 1.1;
+  line-height: 1;
   display: block;
 }
-.fact .l { display: block; margin-top: .4rem; font-size: .84rem; font-weight: 600; }
-.fact .src { display: block; margin-top: .25rem; font-family: var(--mono); font-size: .66rem; color: var(--ink-4); line-height: 1.4; }
-@media (max-width: 640px) { .facts { border-inline: 0; } }
+.fact .l {
+  display: block;
+  margin-top: .5rem;
+  font-size: .855rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-wrap: pretty;
+}
+.fact .src {
+  display: block;
+  margin-top: auto;
+  padding-top: .5rem;
+  font-family: var(--mono);
+  font-size: .68rem;
+  color: var(--ink-4);
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 640px) {
+  .facts { border-inline: 0; grid-template-columns: 1fr; }
+  .fact { padding-inline: var(--gutter); }
+}
 
 .prose { max-width: var(--measure); }
 .prose h2 {
