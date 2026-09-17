@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Board-based CRM for a sales team | Loxly Atkinson</title>
+<meta name="description" content="A sales team runs its day out of one place. Work sits on boards as cards, each card can point at the customer it belongs to, and anything with a date on it chases the person responsible instead of waiting to be remembered. Mail arriving from outside can be turned into a card on the same board, and each person gets their own calendar feed of what is due.">
+<meta name="author" content="Loxly Atkinson">
+<meta property="og:title" content="Board-based CRM for a sales team | Loxly Atkinson">
+<meta property="og:description" content="A sales team runs its day out of one place. Work sits on boards as cards, each card can point at the customer it belongs to, and anything with a date on it chases the person responsible instead of waiting to be remembered. Mail arriving from outside can be turned into a card on the same board, and each person gets their own calendar feed of what is due.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230B0907'/><circle cx='16' cy='16' r='5' fill='%23E89340'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../scrollcraft.css">
+<link rel="stylesheet" href="../../cinematic.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<span data-sc-progress></span>
+<div class="sc-grain" aria-hidden="true"></div>
+
+<aside class="led" id="led" data-sc-verify-state="idle" aria-label="Verification ledger and index">
+  <div class="led__head">
+    <span class="led__title">Ledger</span>
+    <span class="led__count"><b id="ledN">0</b> / 15</span>
+  </div>
+  <span class="led__now" id="ledNow">nothing verified yet</span>
+  <ol class="led__list" id="ledList">
+    <li class="led__row" data-host="naptosawc.co.za"><a href="https://naptosawc.co.za/" target="_blank" rel="noopener"><span class="led__host">naptosawc.co.za</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="my.edenfm.co.za"><a href="https://my.edenfm.co.za/" target="_blank" rel="noopener"><span class="led__host">my.edenfm.co.za</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="trio-data.co.za"><a href="https://www.trio-data.co.za/" target="_blank" rel="noopener"><span class="led__host">trio-data.co.za</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="kuilsriverdoctors.co.za"><a href="https://kuilsriverdoctors.co.za/" target="_blank" rel="noopener"><span class="led__host">kuilsriverdoctors.co.za</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="pisaconsulting.com"><a href="https://www.pisaconsulting.com/assessments" target="_blank" rel="noopener"><span class="led__host">pisaconsulting.com</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="omnimarketer.app"><a href="https://omnimarketer.app/" target="_blank" rel="noopener"><span class="led__host">omnimarketer.app</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="smartaisolutions.co.za"><a href="https://www.smartaisolutions.co.za/" target="_blank" rel="noopener"><span class="led__host">smartaisolutions.co.za</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="centuryclub.co.za"><a href="https://centuryclub.co.za/" target="_blank" rel="noopener"><span class="led__host">centuryclub.co.za</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="ctcommunications.co.za"><a href="https://ctcommunications.co.za/" target="_blank" rel="noopener"><span class="led__host">ctcommunications.co.za</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="timeworksdata.co.za"><a href="https://timeworksdata.co.za/" target="_blank" rel="noopener"><span class="led__host">timeworksdata.co.za</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="sublify.co.za"><a href="https://sublify.co.za/" target="_blank" rel="noopener"><span class="led__host">sublify.co.za</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="earthboundmcc.co.za"><a href="https://earthboundmcc.co.za/" target="_blank" rel="noopener"><span class="led__host">earthboundmcc.co.za</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="pandoradataservices.co.za"><a href="https://pandoradataservices.co.za/" target="_blank" rel="noopener"><span class="led__host">pandoradataservices.co.za</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="ekantikconsulting.com"><a href="https://ekantikconsulting.com/" target="_blank" rel="noopener"><span class="led__host">ekantikconsulting.com</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="computercomplex.co.za"><a href="https://computercomplex.co.za/" target="_blank" rel="noopener"><span class="led__host">computercomplex.co.za</span><span class="led__code">200</span></a></li>
+  </ol>
+  <p class="led__foot">Every line is a status observed on 17 September 2026, not a claim.</p>
+  <div class="led__gate" id="ledGate">
+    <ol class="gate__rows" id="gateRows">
+      <li class="gate__row" data-gate="G01"><span class="gate__n">G01</span><span class="gate__what">Deploy tooling present</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G02"><span class="gate__n">G02</span><span class="gate__what">Remote root survives path conversion</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G03"><span class="gate__n">G03</span><span class="gate__what">Deploy target is a hostname, not an IP</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G04"><span class="gate__n">G04</span><span class="gate__what">Credentials loaded, names only</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G04B"><span class="gate__n">G04B</span><span class="gate__what">Build environment complete</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G05"><span class="gate__n">G05</span><span class="gate__what">Login preflight</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G06"><span class="gate__n">G06</span><span class="gate__what">Live origin reachable from here</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G07"><span class="gate__n">G07</span><span class="gate__what">Ship surface clean</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G08"><span class="gate__n">G08</span><span class="gate__what">Working tree equals HEAD on the ship surface</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G09"><span class="gate__n">G09</span><span class="gate__what">Ports and orphan build processes</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G10"><span class="gate__n">G10</span><span class="gate__what">Typecheck actually checks files</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G10B"><span class="gate__n">G10B</span><span class="gate__what">Generated content is current</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G11"><span class="gate__n">G11</span><span class="gate__what">Build, prerendered, foreground</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G12"><span class="gate__n">G12</span><span class="gate__what">Every manifest route rendered to disk</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G13"><span class="gate__n">G13</span><span class="gate__what">Zero bare shells and zero soft 404s in dist</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G14"><span class="gate__n">G14</span><span class="gate__what">dist is newer than every source it claims to build</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G15"><span class="gate__n">G15</span><span class="gate__what">No undefined env values baked into the bundle</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G16"><span class="gate__n">G16</span><span class="gate__what">htaccess shipped and intact</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G17"><span class="gate__n">G17</span><span class="gate__what">Bundle fingerprint recorded</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G18"><span class="gate__n">G18</span><span class="gate__what">Upload plan is sane</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G19"><span class="gate__n">G19</span><span class="gate__what">Upload to host</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G20"><span class="gate__n">G20</span><span class="gate__what">Raw HTML SEO smoke, live</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G21"><span class="gate__n">G21</span><span class="gate__what">Live bundle is the bundle that was just built</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G22"><span class="gate__n">G22</span><span class="gate__what">Live last modified post dates this deploy</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G23"><span class="gate__n">G23</span><span class="gate__what">Live route sample</span><span class="gate__ok">ok</span></li>
+    </ol>
+    <p class="gate__verdict" id="gateVerdict">Refused to ship
+      <small>G21 fetched the live page, read its bundle hash, refetched that chunk and compared it with what had just been built. They did not match. The deploy stopped here.</small>
+    </p>
+  </div>
+</aside>
+<div class="shift">
+<main id="main">
+
+  <!-- Object plate. Pinned still with a parallax bed: depth from differential
+       movement, which is the cheapest premium signal available. -->
+  <section data-sc-act="pin" data-sc-span="2.2" data-sc-drift="#0B0907">
+    <div data-sc-stage  style="overflow:hidden">
+      <div data-sc-parallax="-0.9" style="position:absolute;inset:-8% 0;">
+        <img src="../../assets/sales-crm.webp" width="1800" height="1005" alt="A low-key photograph of the kind of room this system runs in." style="width:100%;height:100%;object-fit:cover">
+      </div>
+      <div class="sc-scrim sc-scrim--lead" aria-hidden="true"></div>
+      <div class="sc-copy sc-copy--lead" data-sc-cue="0 0.82 0">
+        <a class="back" href="../../index.html">The collection</a>
+        <h1 class="case__title">Board-based CRM for a sales team</h1>
+        <dl class="lbl" style="max-width:32rem;margin-top:1.4rem">
+          <dt>Client</dt><dd><b>A South African IT retailer (anonymised)</b></dd>
+          <dt>Sector</dt><dd>CRM, sales operations and task management</dd>
+          <dt>Built</dt><dd>June 2026 to September 2026</dd>
+          <dt>Role</dt><dd>Sole engineer on the custom work, design through production</dd>
+          <dt>Status</dt><dd class="">In production, not publicly linked</dd>
+        </dl>
+        
+      </div>
+    </div>
+  </section>
+
+  <section class="sc-section" data-sc-act="flow" data-sc-drift="#0E0B09" style="padding-block:clamp(3rem,7vw,5rem)">
+    <div class="wrap">
+      <p class="sc-lede measure" data-sc-in>A sales team runs its day out of one place. Work sits on boards as cards, each card can point at the customer it belongs to, and anything with a date on it chases the person responsible instead of waiting to be remembered. Mail arriving from outside can be turned into a card on the same board, and each person gets their own calendar feed of what is due.</p>
+    </div>
+  </section>
+
+  <section class="sc-section" data-sc-act="flow" data-sc-drift="#100C09" style="padding-block:0">
+    <div class="wrap"><div class="facts"><div><span class="n">280</span><span class="l">commits of my own work, 6 June to 4 September 2026</span><span class="s">git shortlog -sn --all, author-filtered; the same repository carries 4,431 commits going back to 2021</span></div><div><span class="n">123</span><span class="l">files in the Board package, which does not exist upstream</span><span class="s">find packages/Webkul/Board -type f</span></div><div><span class="n">16,629</span><span class="l">lines added by the Board package, with none deleted</span><span class="s">git diff --numstat from the fork point to HEAD, grouped by directory</span></div><div><span class="n">36</span><span class="l">models in the Board package</span><span class="s">packages/Webkul/Board/src/Models directory listing</span></div><div><span class="n">83</span><span class="l">route declarations on the board admin surface</span><span class="s">grep -c Route:: on the package&#39;s admin-routes.php</span></div><div><span class="n">32</span><span class="l">hand-written 2026 migrations</span><span class="s">ls database/migrations | grep -c ^2026</span></div><div><span class="n">145</span><span class="l">logged build sessions across the four months</span><span class="s">grep -c on the session-log headings in .wiki/log.md</span></div><div><span class="n">306</span><span class="l">written engineering learnings: 141 technology insights, 128 process improvements, 18 anti-patterns, 17 problem resolutions, 2 verification failures</span><span class="s">Learnings directory counts</span></div></div></div>
+  </section>
+
+  <section class="sc-section" data-sc-act="flow" data-sc-drift="#0E0B09">
+    <div class="wrap">
+      <div class="sc-stack measure" data-sc-in data-sc-stagger="60">
+        <span class="eyebrow">The situation</span>
+        <p class="sc-body">The open-source CRM this was built on holds leads, people, organisations and quotes across nineteen packages, and not one of them is a task system, so the work itself had nowhere to live next to the record it belonged to. The job was to put the board and the customer record in the same application, delivered as a single-tenant deployment under the client&#39;s own branding.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sc-section" data-sc-act="flow" data-sc-drift="#100C09">
+    <div class="wrap">
+      <div class="sc-stack measure" data-sc-in style="margin-bottom:1.6rem">
+        <span class="eyebrow">What I built</span>
+      </div>
+      <div class="prose measure">
+      <div data-sc-reveal="left" data-sc-reveal-at="0.05 0.4">
+        <h3>A task board built into the CRM itself</h3>
+        <p>The Board package is a task system in its own right: boards with lists, drag-and-drop cards, board members and roles, and one pill switcher across Boards, Table, My Day, My Calendar, Assignments and the overdue views. Cards carry a priority, a start date, a due date and a separate plan date for when you intend to do the work, plus checklists, colour labels, task types, comments with mentions, attachments, covers and blocked-by dependencies. Every board has a capture rail for getting something written down before deciding where it belongs. It is 123 files and 36 models with its own migrations and permission keys, and none of it exists in the open-source base I started from.</p>
+      </div>
+      <div data-sc-reveal="right" data-sc-reveal-at="0.05 0.4">
+        <h3>Cards that point back at the customer</h3>
+        <p>A card can be linked to a lead, a person, an organisation or a quote through one polymorphic card_links table. The lead and person detail pages then carry a reverse Linked Cards panel, filtered by board membership, so opening a customer shows the work in flight against them and opening the work shows the customer. That is the part a general-purpose board tool cannot do, because the board tool does not hold the sales record, and it is why the work sat inside the CRM rather than beside it.</p>
+      </div>
+      <div data-sc-reveal="left" data-sc-reveal-at="0.05 0.4">
+        <h3>Work that chases the person, not the other way round</h3>
+        <p>Each card can carry two reminders, one for the due date and one for the plan date, fired by a five-minute cron with idempotent stamps so a reminder that has fired is not fired again, with bell-only due-soon pings going to the owner, the members and the watchers. Recurring cards support daily, weekly by weekday mask, monthly, every-N, wait-for-completion and skip-overdue rules. Board automations fire on due-in-N-days and overdue-by-N to move a card, set its priority or notify someone, with a one-fire-per-card ledger behind them. My Calendar gives each person their cards and CRM activities as a personal calendar with a signed public ICS feed, so it can be subscribed to from an ordinary calendar app.</p>
+      </div>
+      <div data-sc-reveal="right" data-sc-reveal-at="0.05 0.4">
+        <h3>Each person&#39;s own mailbox, and email that becomes a task</h3>
+        <p>Every user connects their own IMAP mailbox, with the mailbox password encrypted at rest and pinned by its own test. Inbound mail is polled, MIME headers are decoded, and the sender is matched automatically to the right person or lead, then a Create task action turns the email into a due-dated card stamped with the source email it came from. Ownership scoping keeps one person&#39;s mail out of another person&#39;s view and is pinned by five dedicated tests, including MailUserScopeTest and PerUserSyncOwnershipContractTest. There is a shared-mailbox model as well, for the addresses several people read together.</p>
+      </div>
+      <div data-sc-reveal="left" data-sc-reveal-at="0.05 0.4">
+        <h3>Tasks arriving by WhatsApp</h3>
+        <p>A WhatsApp lane was built so a task could be sent from a phone without opening the CRM: a webhook controller receives the message, a name matcher works out which user and which card it belongs to, and a sweep command clears pending instructions that arrived while the app was not listening. The webhook lane was deployed and proven on production once, and a second transport against the WhatsApp Cloud API exists in source alongside it, with the terms and privacy pages that review path needs served by the app itself. I do not claim the channel is up today. What I do claim is that when the provider stops reporting, the board says so in plain words rather than silently swallowing the tasks.</p>
+      </div>
+      <div data-sc-reveal="right" data-sc-reveal-at="0.05 0.4">
+        <h3>Getting people onto it, and getting releases onto the server</h3>
+        <p>An invite sends an activation email and the account stays inactive until the invitee opens the link and sets their own password, and the modal says that out loud. A test named UserInviteTruthfulnessTest checks the promise in that copy against what the code actually does. The host is deliberately plain: shared hosting with no Node, no websockets and the crontab CLI disabled, so the scheduler runs from a control-panel entry every minute and the visual redesign ships as scoped styles rather than recompiled Tailwind utilities. Production is not a git repository, so releases go up as curated file uploads written to a .new path and moved into place atomically, followed by a cache clear, with a timestamped backup taken first and a standing hash check between production and the repository before any upload.</p>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="hardpart sc-section" data-sc-act="flow" data-sc-drift="#14100C">
+    <div class="wrap">
+      <div class="sc-stack measure" data-sc-in data-sc-stagger="70">
+        <span class="eyebrow">The hard part</span>
+        <p class="sc-display sc-display--md">A reminder bug the test suite could not see, by construction</p>
+        <p class="sc-body">Card reminders were sliding two hours earlier every time somebody saved the card. The reminder columns were written to the database as true UTC instants but read back through Laravel&#39;s plain datetime cast, which interprets a stored value in the application timezone, and those two only agree when the application timezone is UTC. My development machine ran UTC and production runs Africa/Johannesburg, so the local suite could not fail on this: every test passed on a box where the defect does not exist, while each save re-read the stored instant as local time and wrote it back two hours earlier, compounding. The fix was a dedicated cast, Webkul\Board\Casts\UtcDateTime, pinning those columns to UTC regardless of what app.timezone says, plus a guard that refuses to arm a reminder in the past so a drifted value cannot quietly become a dead one. Three further defects came out of the same asymmetry and were fixed in the same commit. It is locked by tests/Feature/ReminderTimezoneTest.php, 21 cases green, 7 of the new ones red if the cast is removed. The lesson I kept is that a green suite on a machine configured differently from production is not evidence, and the difference has to be put inside the test rather than assumed away.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sc-section" data-sc-act="flow" data-sc-drift="#0E0B09">
+    <div class="wrap">
+      <div class="sc-stack" data-sc-in style="margin-bottom:1.1rem"><span class="eyebrow">Built with</span></div>
+      <ul class="tags"><li>Laravel 12</li><li>PHP 8.3</li><li>MariaDB</li><li>Krayin CRM 2.2.3 as the open-source base</li><li>Blade with Vue x-templates</li><li>Tailwind CSS</li><li>Pest</li><li>Laravel Sanctum</li><li>webklex/laravel-imap</li><li>dompdf and mpdf</li><li>maatwebsite/excel</li><li>WhatsApp Cloud API</li><li>Unipile</li><li>Shared hosting with no Node and no websockets</li></ul>
+    </div>
+  </section>
+
+  <section class="sc-section" data-sc-act="flow" data-sc-drift="#100C09">
+    <div class="wrap">
+      <div class="sc-stack measure" data-sc-in style="margin-bottom:1.1rem"><span class="eyebrow">How it was proven</span></div>
+      <ul class="checks measure"><li>The timezone fix is locked by tests/Feature/ReminderTimezoneTest.php: 21 cases green, and 7 of the new ones go red if the UTC cast is removed.</li><li>The Board package is provably new rather than renamed. git ls-tree --name-only upstream/2.2 packages/Webkul/ lists 19 packages and Board is not one of them.</li><li>Authorship is separable from the fork. git shortlog -sn --all attributes 280 commits to me against a 4,431-commit history, and the merge base with upstream/2.2 dates my fork point to 21 May 2026.</li><li>The invite modal&#39;s promise is tested rather than merely written. UserInviteTruthfulnessTest checks the copy against the behaviour: the account stays inactive until the invitee sets their own password.</li><li>Mailbox ownership is pinned by five scope tests, including MailUserScopeTest, PerUserSyncOwnershipContractTest and SalesMailboxAclSplitTest, so one user&#39;s mail cannot surface in another user&#39;s view.</li></ul>
+    </div>
+  </section>
+
+  <section class="sc-section" data-sc-act="flow" data-sc-drift="#0B0907">
+    <div class="wrap">
+      <div class="sc-stack measure" data-sc-in style="margin-bottom:1.4rem">
+        <span class="eyebrow">What this does not prove</span>
+      </div>
+      <div class="bounds measure">
+        <ul><li>No usage figures exist for this system. No user count, no revenue, no hours saved, no uptime number. None was ever measured and I am not going to invent any.</li><li>The base is open source and it is not my work. Krayin CRM is Webkul&#39;s, and so are the README, the changelog and the composer file still sitting in the repository. Mine is the 280 commits after a fork point dated 21 May 2026, and the Board package that has no upstream equivalent.</li><li>There is no public link here and no code to read. It is one client&#39;s production system on their own host, and the repository is private. I will walk through any of it on a call.</li><li>The product is positioned around agentic sales, but no AI layer is shipped. It was held back deliberately rather than faked, so I claim none of it.</li></ul>
+      </div>
+      <nav style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;margin-top:3rem;padding-top:1.6rem;border-top:1px solid var(--hair-soft)">
+        <a class="ext" href="../kuils-river-doctors/" style="border:0;color:var(--sc-ink-soft)">Kuilsriver Doctors practice platform</a>
+        <a class="ext" href="../pisa-assessments/" style="border:0">PISA Assessment Portal</a>
+      </nav>
+    </div>
+  </section>
+
+</main>
+</div>
+<div class="wrap">
+  <footer class="foot">
+    <span>Loxly Atkinson, Cape Town.</span>
+    <span><a href="../../index.html">The collection</a> &nbsp; <a href="../../../index.html">The plain version</a></span>
+  </footer>
+</div>
+<script src="../../scrollcraft.js"></script>
+<script>ScrollCraft.mount(document.body);</script>
+
+<script>
+(function () {
+  var led = document.getElementById('led');
+  if (!led) return;
+  var rows = {}, stamped = 0;
+  var listRows = led.querySelectorAll('.led__row');
+  listRows.forEach(function (r) { rows[r.dataset.host] = r; });
+  var nEl = document.getElementById('ledN');
+  var nowEl = document.getElementById('ledNow');
+
+  function stamp(host) {
+    var r = rows[host];
+    if (!r || r.classList.contains('is-stamped')) return;
+    r.classList.add('is-stamped');
+    stamped++;
+    if (nEl) nEl.textContent = stamped;
+    if (nowEl) nowEl.innerHTML = host + ' <b>200</b>';
+    led.setAttribute('data-sc-verify-state', 'stamped:' + stamped);
+  }
+
+  // Objects stamp their own ledger row as they arrive. Works with and without
+  // motion, because it is intersection, not scroll position.
+  var marks = document.querySelectorAll('[data-led-host]');
+  if ('IntersectionObserver' in window && marks.length) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { stamp(e.target.dataset.ledHost); io.unobserve(e.target); } });
+    }, { threshold: 0.35 });
+    marks.forEach(function (m) { io.observe(m); });
+  } else {
+    marks.forEach(function (m) { stamp(m.dataset.ledHost); });
+  }
+
+  // ---- the peak: the same rail becomes the deploy gate -------------------
+  var act = document.getElementById('gateAct');
+  if (!act) return;
+  var gateRows = Array.prototype.slice.call(document.querySelectorAll('.gate__row'));
+  var verdict = document.getElementById('gateVerdict');
+  var FAIL_AT = 22;
+  var running = false, raf = 0, lastState = '';
+
+  function paint(p) {
+    // gates run across the first 82% of the act, then the verdict holds
+    var t = Math.min(1, Math.max(0, p / 0.82));
+    var upto = Math.round(t * gateRows.length);
+    for (var i = 0; i < gateRows.length; i++) {
+      var on = i < upto;
+      gateRows[i].classList.toggle('is-on', on);
+      gateRows[i].classList.toggle('is-fail', on && i === FAIL_AT);
+      if (i === FAIL_AT) gateRows[i].querySelector('.gate__ok').textContent = on ? 'REFUSED' : 'ok';
+    }
+    var failed = upto > FAIL_AT;
+    if (verdict) verdict.classList.toggle('is-on', failed);
+    led.classList.toggle('is-gate', p > 0.01);
+    var s = failed ? 'gate:refused' : 'gate:' + upto;
+    if (s !== lastState) { led.setAttribute('data-sc-verify-state', s); lastState = s; }
+  }
+
+  function readP() {
+    var v = getComputedStyle(act).getPropertyValue('--sc-p');
+    var n = parseFloat(v);
+    return isNaN(n) ? 0 : n;
+  }
+
+  function loop() {
+    paint(readP());
+    if (running) raf = requestAnimationFrame(loop);
+  }
+
+  var io2 = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (e.isIntersecting && !running) { running = true; loop(); }
+      else if (!e.isIntersecting && running) {
+        running = false; cancelAnimationFrame(raf);
+        led.classList.remove('is-gate');
+        led.setAttribute('data-sc-verify-state', 'stamped:' + stamped);
+        lastState = '';
+      }
+    });
+  }, { threshold: 0 });
+  io2.observe(act);
+
+  // Reduced motion: no rAF, show the resolved end state when the act is reached.
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    io2.disconnect();
+    new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { led.classList.add('is-gate'); paint(1); } });
+    }, { threshold: 0.2 }).observe(act);
+  }
+})();
+</script>
+</body>
+</html>

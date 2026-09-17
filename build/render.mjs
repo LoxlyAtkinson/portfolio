@@ -67,7 +67,7 @@ const FOOT = (depth) => {
   return `<div class="wrap">
 <footer class="foot">
   <span>Loxly Atkinson, Cape Town. Built and published by hand.</span>
-  <span>Every link verified 17 September 2026. <a href="${base}index.html">Back to the top</a></span>
+  <span>Every link verified 17 September 2026. <a href="${base}cinematic/index.html">The cinematic version</a> &nbsp;&middot;&nbsp; <a href="${base}index.html">Back to the top</a></span>
 </footer>
 </div>
 </body>
@@ -396,7 +396,14 @@ ${FOOT(2)}
 
 /* ------------------------------------------------------------------ build */
 
-rmSync(DOCS, { recursive: true, force: true })
+/* Remove only what THIS renderer owns. A blanket rmSync on docs/ deleted the
+   cinematic build, which is rendered by build/render-cinematic.mjs into
+   docs/cinematic/ and is not this script's to destroy. */
+for (const f of ['index.html', 'styles.css', 'sitemap.xml', 'robots.txt']) {
+  const p = join(DOCS, f)
+  if (existsSync(p)) rmSync(p)
+}
+rmSync(join(DOCS, 'work'), { recursive: true, force: true })
 mkdirSync(join(DOCS, 'work'), { recursive: true })
 
 writeFileSync(join(DOCS, 'index.html'), renderHome(), 'utf8')

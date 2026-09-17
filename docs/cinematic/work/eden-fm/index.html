@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Eden FM Platform | Loxly Atkinson</title>
+<meta name="description" content="A community radio station runs its day from one place. Listeners message the station and their requests, birthdays, dedications and fundraising pledges are answered in the same thread and filed as records someone can act on. Presenters open one console to see what listeners have sent, check the weather and the regional news, record in three languages and set their schedule, while managers, advertisers and referral partners each have their own way in.">
+<meta name="author" content="Loxly Atkinson">
+<meta property="og:title" content="Eden FM Platform | Loxly Atkinson">
+<meta property="og:description" content="A community radio station runs its day from one place. Listeners message the station and their requests, birthdays, dedications and fundraising pledges are answered in the same thread and filed as records someone can act on. Presenters open one console to see what listeners have sent, check the weather and the regional news, record in three languages and set their schedule, while managers, advertisers and referral partners each have their own way in.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230B0907'/><circle cx='16' cy='16' r='5' fill='%23E89340'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../scrollcraft.css">
+<link rel="stylesheet" href="../../cinematic.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<span data-sc-progress></span>
+<div class="sc-grain" aria-hidden="true"></div>
+
+<aside class="led" id="led" data-sc-verify-state="idle" aria-label="Verification ledger and index">
+  <div class="led__head">
+    <span class="led__title">Ledger</span>
+    <span class="led__count"><b id="ledN">0</b> / 15</span>
+  </div>
+  <span class="led__now" id="ledNow">nothing verified yet</span>
+  <ol class="led__list" id="ledList">
+    <li class="led__row" data-host="naptosawc.co.za"><a href="https://naptosawc.co.za/" target="_blank" rel="noopener"><span class="led__host">naptosawc.co.za</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="my.edenfm.co.za"><a href="https://my.edenfm.co.za/" target="_blank" rel="noopener"><span class="led__host">my.edenfm.co.za</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="trio-data.co.za"><a href="https://www.trio-data.co.za/" target="_blank" rel="noopener"><span class="led__host">trio-data.co.za</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="kuilsriverdoctors.co.za"><a href="https://kuilsriverdoctors.co.za/" target="_blank" rel="noopener"><span class="led__host">kuilsriverdoctors.co.za</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="pisaconsulting.com"><a href="https://www.pisaconsulting.com/assessments" target="_blank" rel="noopener"><span class="led__host">pisaconsulting.com</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="omnimarketer.app"><a href="https://omnimarketer.app/" target="_blank" rel="noopener"><span class="led__host">omnimarketer.app</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="smartaisolutions.co.za"><a href="https://www.smartaisolutions.co.za/" target="_blank" rel="noopener"><span class="led__host">smartaisolutions.co.za</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="centuryclub.co.za"><a href="https://centuryclub.co.za/" target="_blank" rel="noopener"><span class="led__host">centuryclub.co.za</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="ctcommunications.co.za"><a href="https://ctcommunications.co.za/" target="_blank" rel="noopener"><span class="led__host">ctcommunications.co.za</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="timeworksdata.co.za"><a href="https://timeworksdata.co.za/" target="_blank" rel="noopener"><span class="led__host">timeworksdata.co.za</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="sublify.co.za"><a href="https://sublify.co.za/" target="_blank" rel="noopener"><span class="led__host">sublify.co.za</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="earthboundmcc.co.za"><a href="https://earthboundmcc.co.za/" target="_blank" rel="noopener"><span class="led__host">earthboundmcc.co.za</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="pandoradataservices.co.za"><a href="https://pandoradataservices.co.za/" target="_blank" rel="noopener"><span class="led__host">pandoradataservices.co.za</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="ekantikconsulting.com"><a href="https://ekantikconsulting.com/" target="_blank" rel="noopener"><span class="led__host">ekantikconsulting.com</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="computercomplex.co.za"><a href="https://computercomplex.co.za/" target="_blank" rel="noopener"><span class="led__host">computercomplex.co.za</span><span class="led__code">200</span></a></li>
+  </ol>
+  <p class="led__foot">Every line is a status observed on 17 September 2026, not a claim.</p>
+  <div class="led__gate" id="ledGate">
+    <ol class="gate__rows" id="gateRows">
+      <li class="gate__row" data-gate="G01"><span class="gate__n">G01</span><span class="gate__what">Deploy tooling present</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G02"><span class="gate__n">G02</span><span class="gate__what">Remote root survives path conversion</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G03"><span class="gate__n">G03</span><span class="gate__what">Deploy target is a hostname, not an IP</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G04"><span class="gate__n">G04</span><span class="gate__what">Credentials loaded, names only</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G04B"><span class="gate__n">G04B</span><span class="gate__what">Build environment complete</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G05"><span class="gate__n">G05</span><span class="gate__what">Login preflight</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G06"><span class="gate__n">G06</span><span class="gate__what">Live origin reachable from here</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G07"><span class="gate__n">G07</span><span class="gate__what">Ship surface clean</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G08"><span class="gate__n">G08</span><span class="gate__what">Working tree equals HEAD on the ship surface</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G09"><span class="gate__n">G09</span><span class="gate__what">Ports and orphan build processes</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G10"><span class="gate__n">G10</span><span class="gate__what">Typecheck actually checks files</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G10B"><span class="gate__n">G10B</span><span class="gate__what">Generated content is current</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G11"><span class="gate__n">G11</span><span class="gate__what">Build, prerendered, foreground</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G12"><span class="gate__n">G12</span><span class="gate__what">Every manifest route rendered to disk</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G13"><span class="gate__n">G13</span><span class="gate__what">Zero bare shells and zero soft 404s in dist</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G14"><span class="gate__n">G14</span><span class="gate__what">dist is newer than every source it claims to build</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G15"><span class="gate__n">G15</span><span class="gate__what">No undefined env values baked into the bundle</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G16"><span class="gate__n">G16</span><span class="gate__what">htaccess shipped and intact</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G17"><span class="gate__n">G17</span><span class="gate__what">Bundle fingerprint recorded</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G18"><span class="gate__n">G18</span><span class="gate__what">Upload plan is sane</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G19"><span class="gate__n">G19</span><span class="gate__what">Upload to host</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G20"><span class="gate__n">G20</span><span class="gate__what">Raw HTML SEO smoke, live</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G21"><span class="gate__n">G21</span><span class="gate__what">Live bundle is the bundle that was just built</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G22"><span class="gate__n">G22</span><span class="gate__what">Live last modified post dates this deploy</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G23"><span class="gate__n">G23</span><span class="gate__what">Live route sample</span><span class="gate__ok">ok</span></li>
+    </ol>
+    <p class="gate__verdict" id="gateVerdict">Refused to ship
+      <small>G21 fetched the live page, read its bundle hash, refetched that chunk and compared it with what had just been built. They did not match. The deploy stopped here.</small>
+    </p>
+  </div>
+</aside>
+<div class="shift">
+<main id="main">
+
+  <!-- Object plate. Pinned still with a parallax bed: depth from differential
+       movement, which is the cheapest premium signal available. -->
+  <section data-sc-act="pin" data-sc-span="2.2" data-sc-drift="#0B0907">
+    <div data-sc-stage data-led-host="my.edenfm.co.za" style="overflow:hidden">
+      <div data-sc-parallax="-0.9" style="position:absolute;inset:-8% 0;">
+        <img src="../../assets/eden-fm.webp" width="1800" height="1005" alt="A low-key photograph of the kind of room this system runs in." style="width:100%;height:100%;object-fit:cover">
+      </div>
+      <div class="sc-scrim sc-scrim--lead" aria-hidden="true"></div>
+      <div class="sc-copy sc-copy--lead" data-sc-cue="0 0.82 0">
+        <a class="back" href="../../index.html">The collection</a>
+        <h1 class="case__title">Eden FM Platform</h1>
+        <dl class="lbl" style="max-width:32rem;margin-top:1.4rem">
+          <dt>Client</dt><dd><b>Eden FM</b></dd>
+          <dt>Sector</dt><dd>Community radio and broadcast media</dd>
+          <dt>Built</dt><dd>November 2025 to September 2026</dd>
+          <dt>Role</dt><dd>Sole engineer, from first commit to production deploy</dd>
+          <dt>Status</dt><dd class="is-live">Live</dd>
+        </dl>
+        <p style="margin-top:1rem"><a class="ext" href="https://my.edenfm.co.za/" target="_blank" rel="noopener">my.edenfm.co.za</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sc-section" data-sc-act="flow" data-sc-drift="#0E0B09" style="padding-block:clamp(3rem,7vw,5rem)">
+    <div class="wrap">
+      <p class="sc-lede measure" data-sc-in>A community radio station runs its day from one place. Listeners message the station and their requests, birthdays, dedications and fundraising pledges are answered in the same thread and filed as records someone can act on. Presenters open one console to see what listeners have sent, check the weather and the regional news, record in three languages and set their schedule, while managers, advertisers and referral partners each have their own way in.</p>
+    </div>
+  </section>
+
+  <section class="sc-section" data-sc-act="flow" data-sc-drift="#100C09" style="padding-block:0">
+    <div class="wrap"><div class="facts"><div><span class="n">17</span><span class="l">modules in the presenter console, declared once</span><span class="s">src/lib/presenterNav.ts, typed union at lines 21-37 and array entries at lines 55-212; grep -c returns 17</span></div><div><span class="n">371</span><span class="l">edge functions in the codebase, each with an entrypoint</span><span class="s">find over supabase/functions at maxdepth 1 returns 371 directories, and the index.ts count at maxdepth 2 matches it</span></div><div><span class="n">246</span><span class="l">database tables across 534 migration files</span><span class="s">deduplicated CREATE TABLE grep over supabase/migrations; ls of the migrations directory</span></div><div><span class="n">50</span><span class="l">production cron jobs, all active</span><span class="s">docs/cron-registry.md line 3, recorded against the live prod cron.job list as of 2026-06-16</span></div><div><span class="n">7</span><span class="l">authenticated roles across 28 routes</span><span class="s">route declarations in src/App.tsx lines 152-181, and the role dashboards behind them</span></div><div><span class="n">583</span><span class="l">TypeScript and React source files, 456 of them components</span><span class="s">find over src for .ts and .tsx, and over src/components for .tsx</span></div><div><span class="n">221</span><span class="l">commits, 2025-11-18 to 2026-09-02</span><span class="s">git rev-list --all --count in the canonical repository; git log --reverse and git log -1 for the dates</span></div><div><span class="n">457</span><span class="l">written engineering learnings, indexed by category</span><span class="s">directory counts under Learnings/: 212 problem-resolutions, 128 process-improvements, 71 technology-insights, 46 anti-patterns</span></div></div></div>
+  </section>
+
+  <section class="sc-section" data-sc-act="flow" data-sc-drift="#0E0B09">
+    <div class="wrap">
+      <div class="sc-stack measure" data-sc-in data-sc-stagger="60">
+        <span class="eyebrow">The situation</span>
+        <p class="sc-body">Eden FM takes in high-volume inbound listener contact: requests, dedications, birthdays, prayer requests, and pledges during fundraising drives. It arrives as free text in one thread per person, with no automated triage and no structured record behind it. The same station also runs an on-air presenter workflow, an advertiser programme and a referral programme, and this platform was built to hold all of it in one place.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sc-section" data-sc-act="flow" data-sc-drift="#100C09">
+    <div class="wrap">
+      <div class="sc-stack measure" data-sc-in style="margin-bottom:1.6rem">
+        <span class="eyebrow">What I built</span>
+      </div>
+      <div class="prose measure">
+      <div data-sc-reveal="left" data-sc-reveal-at="0.05 0.4">
+        <h3>The listener WhatsApp line</h3>
+        <p>A listener sends a request, a birthday, a dedication or a prayer request to the station&#39;s number and gets a reply in the same thread. Behind that reply the message is classified and filed, so it reaches the presenter on the Requests and Inbox modules of their console instead of staying in a chat log. During a fundraising drive the same thread takes pledges: the amount is read out of the message and confirmed back, reminders go out with payment details, and a follow-up and a thank-you close it off. When a conversation needs a person it escalates, and the escalation is tracked in the admin console.</p>
+      </div>
+      <div data-sc-reveal="right" data-sc-reveal-at="0.05 0.4">
+        <h3>A 17-module on-air console driven from one manifest</h3>
+        <p>Presenters work from a console of 17 modules, covering requests, inbox, pledges, news and weather, assignments, recordings, the content schedule, compliance and the rest. All 17 are declared once, as a typed array in src/lib/presenterNav.ts. Each entry carries its own permission key, a mobile placement rule of tab bar, overflow menu or hidden, a management-only flag and command-palette keywords, and that single array drives the desktop sidebar, the mobile tab bar, the overflow menu and the command palette together. Adding a module is one entry, and a module a presenter is not permitted to see is gated in the same place it is declared, so those four surfaces cannot disagree about who sees what.</p>
+      </div>
+      <div data-sc-reveal="left" data-sc-reveal-at="0.05 0.4">
+        <h3>A trilingual recording studio and a regional news wire</h3>
+        <p>The station broadcasts in Afrikaans, English and Xhosa, so the studio gives each broadcast a dedicated time slot per language. A presenter records in the page, names the take and files it against ten categories plus a custom one, and it can be filtered later by category, date range or presenter. A teleprompter runs in the same view with adjustable scroll speed, so each presenter reads at their own pace. A news wire covering the Klein Karoo through Knysna, George and Mossel Bay suggests headlines and ready-to-read copy and saves the chosen story straight into the presenter&#39;s selected slot and language, so prep flows into the recording.</p>
+      </div>
+      <div data-sc-reveal="right" data-sc-reveal-at="0.05 0.4">
+        <h3>Listener analytics in plain language</h3>
+        <p>Station managers ask questions of the message history in ordinary English and get counts back: inbound messages, unique people, conversations and requests over a chosen period, a top-20 list of the most regular listeners, a breakdown by request type such as birthdays, dedications and prayer requests, a per-listener engagement trend, and a heatmap of which days and which hours people make contact. It is the same conversational data the bot already handles, read back as audience research rather than as a chat log.</p>
+      </div>
+      <div data-sc-reveal="left" data-sc-reveal-at="0.05 0.4">
+        <h3>Advertisers, referral partners and institutions</h3>
+        <p>Advertisers register themselves, submit a campaign with uploaded assets and see their own dashboard and reports, and station management reviews each submission and can decline it. The referral programme runs alongside it: partners register, refer, earn points against a leaderboard and redeem rewards, with a partner hierarchy behind it recording who referred whom. Schools and businesses come in as institutions with their own members, bulk member upload and a membership claim flow. Seven authenticated roles in total, each behind its own dashboard, across 28 routes.</p>
+      </div>
+      <div data-sc-reveal="right" data-sc-reveal-at="0.05 0.4">
+        <h3>Documentation delivered to the station</h3>
+        <p>Two illustrated feature guides went to the station, written for presenters and management. The eight-page guide dated February 2026 walks through the recording flow, from finding the record control to naming and categorising a take, and through content scheduling. The presenter dashboard guide is not assembled by hand: it is rendered from HTML to PDF by a script kept in the repository, with eight rendered page screenshots stored alongside it as a check that the document still builds correctly after a change. Every one of the 50 production cron jobs is documented with its schedule, what it does, and the migration file that created it.</p>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="hardpart sc-section" data-sc-act="flow" data-sc-drift="#14100C">
+    <div class="wrap">
+      <div class="sc-stack measure" data-sc-in data-sc-stagger="70">
+        <span class="eyebrow">The hard part</span>
+        <p class="sc-display sc-display--md">Getting structured records out of a free-text chat thread</p>
+        <p class="sc-body">WhatsApp only allows polls inside groups you administer, so there was no way to put a poll in front of a listener in a one-to-one thread. The answer was to stop treating the chat as a message log and treat it as the input surface for structured records: the bot asks the question in the ordinary flow of the conversation, the listener answers however they like, and the free-text answer is captured into a central record that can be categorised and counted. The same approach carries the pledge flow, which is harder, because a pledge is not one message: it is a state machine living across days that has to recognise the commitment, confirm the amount back to the person, record who pledged, remind with payment details, follow up if payment has not arrived, thank the donor once it has, and escalate to a human when the conversation goes somewhere a bot should not. That is why update-pledge-from-conversation exists as its own edge function alongside create-pledge, send-pledge-reminders, update-pledge-status and resolve-pledge-escalation, and why polling has the matching set in chatbot-poll-handler, poll-vote, poll-results and send-poll-follow-ups. The conversation is what moves the record, not a form. Because that parse is the only thing standing between a chat message and a database row, the bot&#39;s own behaviour is reviewed on a schedule rather than trusted: reflection-loop runs hourly under the auto-train-reflection cron, and scan-conversation-trends, summarize-whatsapp-conversation and conversation-analysis-digest sit alongside it, so a misreading shows up as a pattern in the review rather than as one listener&#39;s bad experience nobody sees. Once every conversation has a record behind it, the station&#39;s whole message history becomes something a manager can query in plain language.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sc-section" data-sc-act="flow" data-sc-drift="#0E0B09">
+    <div class="wrap">
+      <div class="sc-stack" data-sc-in style="margin-bottom:1.1rem"><span class="eyebrow">Built with</span></div>
+      <ul class="tags"><li>React 18</li><li>TypeScript</li><li>Vite</li><li>Tailwind CSS</li><li>shadcn/ui</li><li>Supabase (Postgres, Auth, Storage)</li><li>Deno edge functions</li><li>Capacitor 8 (Android)</li><li>ffmpeg.wasm</li><li>Google Gemini</li><li>ElevenLabs</li><li>2Chat WhatsApp API</li><li>Inngest</li><li>Vitest</li></ul>
+    </div>
+  </section>
+
+  <section class="sc-section" data-sc-act="flow" data-sc-drift="#100C09">
+    <div class="wrap">
+      <div class="sc-stack measure" data-sc-in style="margin-bottom:1.1rem"><span class="eyebrow">How it was proven</span></div>
+      <ul class="checks measure"><li>my.edenfm.co.za returns 200 on a live probe, and a bogus path on that host returns a real 404 rather than a catch-all page (probed 2026-09-17).</li><li>Dated JSON verification receipts are kept in .claude/evidence/, including a production verifier run against the chatbot digest dated 2026-05-25.</li><li>The last production change of 2026-09-02 was only recorded as done after a real end-to-end round trip was run twice on test accounts, which is what the session state records as closing it.</li><li>docs/FEATURE_LIBRARY_OUTCOME_MAP.md writes all 44 features outcome-first, as user can do X and see Y, each with its UI entry point, its feedback state, its dependencies and a live, in-progress or planned status, across 10 domains.</li><li>The presenter dashboard guide is rendered from HTML to PDF by a script in the repository, with eight per-page rendered screenshots kept in docs/feature-guide/verify/ as a visual check that the build still produces a correct document.</li></ul>
+    </div>
+  </section>
+
+  <section class="sc-section" data-sc-act="flow" data-sc-drift="#0B0907">
+    <div class="wrap">
+      <div class="sc-stack measure" data-sc-in style="margin-bottom:1.4rem">
+        <span class="eyebrow">What this does not prove</span>
+      </div>
+      <div class="bounds measure">
+        <ul><li>371 edge functions is a count of what is in the codebase. I did not verify how many of them are live in the Supabase project, so I do not call them deployed.</li><li>No usage figure appears on this page. A registration count exists as a CSV export, but it is a client-governed snapshot that is not cleared for publication, and there is no audience measurement, no pledge collection report and no uptime monitoring anywhere in the tree, so I make no claim about listener numbers, message volume, pledge rates or reliability, and I am not going to invent any.</li><li>No client testimonial, quote or reference exists for this build. None is used here.</li><li>The repository began life as a Lovable scaffold and the untouched scaffold README is still in it. It was then built out by hand into what it is now, and I would rather say that than hide it.</li></ul>
+      </div>
+      <nav style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;margin-top:3rem;padding-top:1.6rem;border-top:1px solid var(--hair-soft)">
+        <span></span>
+        <a class="ext" href="../naptosa/" style="border:0">NAPTOSA Western Cape member platform</a>
+      </nav>
+    </div>
+  </section>
+
+</main>
+</div>
+<div class="wrap">
+  <footer class="foot">
+    <span>Loxly Atkinson, Cape Town.</span>
+    <span><a href="../../index.html">The collection</a> &nbsp; <a href="../../../index.html">The plain version</a></span>
+  </footer>
+</div>
+<script src="../../scrollcraft.js"></script>
+<script>ScrollCraft.mount(document.body);</script>
+
+<script>
+(function () {
+  var led = document.getElementById('led');
+  if (!led) return;
+  var rows = {}, stamped = 0;
+  var listRows = led.querySelectorAll('.led__row');
+  listRows.forEach(function (r) { rows[r.dataset.host] = r; });
+  var nEl = document.getElementById('ledN');
+  var nowEl = document.getElementById('ledNow');
+
+  function stamp(host) {
+    var r = rows[host];
+    if (!r || r.classList.contains('is-stamped')) return;
+    r.classList.add('is-stamped');
+    stamped++;
+    if (nEl) nEl.textContent = stamped;
+    if (nowEl) nowEl.innerHTML = host + ' <b>200</b>';
+    led.setAttribute('data-sc-verify-state', 'stamped:' + stamped);
+  }
+
+  // Objects stamp their own ledger row as they arrive. Works with and without
+  // motion, because it is intersection, not scroll position.
+  var marks = document.querySelectorAll('[data-led-host]');
+  if ('IntersectionObserver' in window && marks.length) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { stamp(e.target.dataset.ledHost); io.unobserve(e.target); } });
+    }, { threshold: 0.35 });
+    marks.forEach(function (m) { io.observe(m); });
+  } else {
+    marks.forEach(function (m) { stamp(m.dataset.ledHost); });
+  }
+
+  // ---- the peak: the same rail becomes the deploy gate -------------------
+  var act = document.getElementById('gateAct');
+  if (!act) return;
+  var gateRows = Array.prototype.slice.call(document.querySelectorAll('.gate__row'));
+  var verdict = document.getElementById('gateVerdict');
+  var FAIL_AT = 22;
+  var running = false, raf = 0, lastState = '';
+
+  function paint(p) {
+    // gates run across the first 82% of the act, then the verdict holds
+    var t = Math.min(1, Math.max(0, p / 0.82));
+    var upto = Math.round(t * gateRows.length);
+    for (var i = 0; i < gateRows.length; i++) {
+      var on = i < upto;
+      gateRows[i].classList.toggle('is-on', on);
+      gateRows[i].classList.toggle('is-fail', on && i === FAIL_AT);
+      if (i === FAIL_AT) gateRows[i].querySelector('.gate__ok').textContent = on ? 'REFUSED' : 'ok';
+    }
+    var failed = upto > FAIL_AT;
+    if (verdict) verdict.classList.toggle('is-on', failed);
+    led.classList.toggle('is-gate', p > 0.01);
+    var s = failed ? 'gate:refused' : 'gate:' + upto;
+    if (s !== lastState) { led.setAttribute('data-sc-verify-state', s); lastState = s; }
+  }
+
+  function readP() {
+    var v = getComputedStyle(act).getPropertyValue('--sc-p');
+    var n = parseFloat(v);
+    return isNaN(n) ? 0 : n;
+  }
+
+  function loop() {
+    paint(readP());
+    if (running) raf = requestAnimationFrame(loop);
+  }
+
+  var io2 = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (e.isIntersecting && !running) { running = true; loop(); }
+      else if (!e.isIntersecting && running) {
+        running = false; cancelAnimationFrame(raf);
+        led.classList.remove('is-gate');
+        led.setAttribute('data-sc-verify-state', 'stamped:' + stamped);
+        lastState = '';
+      }
+    });
+  }, { threshold: 0 });
+  io2.observe(act);
+
+  // Reduced motion: no rAF, show the resolved end state when the act is reached.
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    io2.disconnect();
+    new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { led.classList.add('is-gate'); paint(1); } });
+    }, { threshold: 0.2 }).observe(act);
+  }
+})();
+</script>
+</body>
+</html>

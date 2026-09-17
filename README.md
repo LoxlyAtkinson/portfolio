@@ -57,3 +57,48 @@ credential, commercial term or internal blocker appears on the site or in this r
 ## Licence
 
 Content and copy are the author's. The code is unremarkable and may be reused.
+
+## The cinematic version
+
+**https://loxlyatkinson.github.io/portfolio/cinematic/**
+
+A scroll-driven version of the same content, built with the `scroll-craft`
+skill. It does not replace the pages above. The plain version is what a hiring
+manager scans in twenty seconds; this one is an experience, and it reads from
+exactly the same `content/` files, so a claim corrected in one is corrected in
+both.
+
+```
+src/cinematic.css          the theme and the page-local classes
+src/cinematic-assets/      generated stills, the hero clip, the engine
+build/render-cinematic.mjs renders docs/cinematic/ from nothing
+scrollcraft/               the brief, the build folder, the fingerprint registry
+```
+
+```bash
+node build/render-cinematic.mjs
+node build/verify.mjs          # the same claim gate runs over these pages too
+```
+
+**Grammar:** gallery / catalog. The page is a walkable collection of objects
+with museum labels, not an argument. Eight acts, 15 viewport-heights, six device
+families, one scrub clip.
+
+**The signature move is the ledger.** The rail down the left edge is the
+navigation, and it is also a running receipt: it stamps each system's observed
+HTTP status as you pass it and keeps every line. At the peak it stops being an
+index and becomes the deploy pipeline, twenty five gates running under the
+reader's hand, refusing to ship at G21.
+
+**The gate names are real.** They are read from `scripts/deploy-guarded.py` in
+the NAPTOSA repository, which has exactly twenty five gate functions. Three
+labels are altered and the renderer says which and why: two named client
+infrastructure and one used first person plural, which the claim gate bans on a
+solo practice. No gate is invented.
+
+**World:** low-key cinematic. Real working South African interiors at night, one
+warm practical light per frame, nobody in shot. Generated with Higgsfield
+(Cinema Studio Image 2.5 for stills, Cinema Studio Video for the one camera
+move) at a cost of 31 credits, including four rerolls. The headshot is a real
+photograph and is not generated.
+

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Loxly Atkinson, the collection</title>
+<meta name="description" content="Fifteen live systems, nine of them in depth. Every figure counted from source, every link verified on 17 September 2026.">
+<meta name="author" content="Loxly Atkinson">
+<meta property="og:title" content="Loxly Atkinson, the collection">
+<meta property="og:description" content="Fifteen live systems, nine of them in depth. Every figure counted from source, every link verified on 17 September 2026.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230B0907'/><circle cx='16' cy='16' r='5' fill='%23E89340'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="scrollcraft.css">
+<link rel="stylesheet" href="cinematic.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<span data-sc-progress></span>
+<div class="sc-grain" aria-hidden="true"></div>
+
+<aside class="led" id="led" data-sc-verify-state="idle" aria-label="Verification ledger and index">
+  <div class="led__head">
+    <span class="led__title">Ledger</span>
+    <span class="led__count"><b id="ledN">0</b> / 15</span>
+  </div>
+  <span class="led__now" id="ledNow">nothing verified yet</span>
+  <ol class="led__list" id="ledList">
+    <li class="led__row" data-host="naptosawc.co.za"><a href="https://naptosawc.co.za/" target="_blank" rel="noopener"><span class="led__host">naptosawc.co.za</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="my.edenfm.co.za"><a href="https://my.edenfm.co.za/" target="_blank" rel="noopener"><span class="led__host">my.edenfm.co.za</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="trio-data.co.za"><a href="https://www.trio-data.co.za/" target="_blank" rel="noopener"><span class="led__host">trio-data.co.za</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="kuilsriverdoctors.co.za"><a href="https://kuilsriverdoctors.co.za/" target="_blank" rel="noopener"><span class="led__host">kuilsriverdoctors.co.za</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="pisaconsulting.com"><a href="https://www.pisaconsulting.com/assessments" target="_blank" rel="noopener"><span class="led__host">pisaconsulting.com</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="omnimarketer.app"><a href="https://omnimarketer.app/" target="_blank" rel="noopener"><span class="led__host">omnimarketer.app</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="smartaisolutions.co.za"><a href="https://www.smartaisolutions.co.za/" target="_blank" rel="noopener"><span class="led__host">smartaisolutions.co.za</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="centuryclub.co.za"><a href="https://centuryclub.co.za/" target="_blank" rel="noopener"><span class="led__host">centuryclub.co.za</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="ctcommunications.co.za"><a href="https://ctcommunications.co.za/" target="_blank" rel="noopener"><span class="led__host">ctcommunications.co.za</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="timeworksdata.co.za"><a href="https://timeworksdata.co.za/" target="_blank" rel="noopener"><span class="led__host">timeworksdata.co.za</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="sublify.co.za"><a href="https://sublify.co.za/" target="_blank" rel="noopener"><span class="led__host">sublify.co.za</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="earthboundmcc.co.za"><a href="https://earthboundmcc.co.za/" target="_blank" rel="noopener"><span class="led__host">earthboundmcc.co.za</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="pandoradataservices.co.za"><a href="https://pandoradataservices.co.za/" target="_blank" rel="noopener"><span class="led__host">pandoradataservices.co.za</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="ekantikconsulting.com"><a href="https://ekantikconsulting.com/" target="_blank" rel="noopener"><span class="led__host">ekantikconsulting.com</span><span class="led__code">200</span></a></li>
+    <li class="led__row" data-host="computercomplex.co.za"><a href="https://computercomplex.co.za/" target="_blank" rel="noopener"><span class="led__host">computercomplex.co.za</span><span class="led__code">200</span></a></li>
+  </ol>
+  <p class="led__foot">Every line is a status observed on 17 September 2026, not a claim.</p>
+  <div class="led__gate" id="ledGate">
+    <ol class="gate__rows" id="gateRows">
+      <li class="gate__row" data-gate="G01"><span class="gate__n">G01</span><span class="gate__what">Deploy tooling present</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G02"><span class="gate__n">G02</span><span class="gate__what">Remote root survives path conversion</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G03"><span class="gate__n">G03</span><span class="gate__what">Deploy target is a hostname, not an IP</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G04"><span class="gate__n">G04</span><span class="gate__what">Credentials loaded, names only</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G04B"><span class="gate__n">G04B</span><span class="gate__what">Build environment complete</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G05"><span class="gate__n">G05</span><span class="gate__what">Login preflight</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G06"><span class="gate__n">G06</span><span class="gate__what">Live origin reachable from here</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G07"><span class="gate__n">G07</span><span class="gate__what">Ship surface clean</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G08"><span class="gate__n">G08</span><span class="gate__what">Working tree equals HEAD on the ship surface</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G09"><span class="gate__n">G09</span><span class="gate__what">Ports and orphan build processes</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G10"><span class="gate__n">G10</span><span class="gate__what">Typecheck actually checks files</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G10B"><span class="gate__n">G10B</span><span class="gate__what">Generated content is current</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G11"><span class="gate__n">G11</span><span class="gate__what">Build, prerendered, foreground</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G12"><span class="gate__n">G12</span><span class="gate__what">Every manifest route rendered to disk</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G13"><span class="gate__n">G13</span><span class="gate__what">Zero bare shells and zero soft 404s in dist</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G14"><span class="gate__n">G14</span><span class="gate__what">dist is newer than every source it claims to build</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G15"><span class="gate__n">G15</span><span class="gate__what">No undefined env values baked into the bundle</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G16"><span class="gate__n">G16</span><span class="gate__what">htaccess shipped and intact</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G17"><span class="gate__n">G17</span><span class="gate__what">Bundle fingerprint recorded</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G18"><span class="gate__n">G18</span><span class="gate__what">Upload plan is sane</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G19"><span class="gate__n">G19</span><span class="gate__what">Upload to host</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G20"><span class="gate__n">G20</span><span class="gate__what">Raw HTML SEO smoke, live</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G21"><span class="gate__n">G21</span><span class="gate__what">Live bundle is the bundle that was just built</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G22"><span class="gate__n">G22</span><span class="gate__what">Live last modified post dates this deploy</span><span class="gate__ok">ok</span></li>
+      <li class="gate__row" data-gate="G23"><span class="gate__n">G23</span><span class="gate__what">Live route sample</span><span class="gate__ok">ok</span></li>
+    </ol>
+    <p class="gate__verdict" id="gateVerdict">Refused to ship
+      <small>G21 fetched the live page, read its bundle hash, refetched that chunk and compared it with what had just been built. They did not match. The deploy stopped here.</small>
+    </p>
+  </div>
+</aside>
+<div class="shift">
+<main id="main">
+
+  <!-- 1 ARRIVAL, scrub. Gallery hero: object one, already in view, already
+       labelled. No separate title stage, no hero claim. -->
+  <section data-sc-act="scrub" data-sc-span="2.6" data-sc-dwell="0.34" data-sc-drift="#0B0907">
+    <div data-sc-stage data-led-host="my.edenfm.co.za">
+      <picture>
+        <img class="sc-stage__poster" src="assets/hero-poster.webp" alt="">
+      </picture>
+      <video data-sc-scrub data-sc-src="assets/hero.mp4" data-sc-src-mobile="assets/hero-m.mp4" muted playsinline></video>
+      <div class="sc-scrim sc-scrim--lead" aria-hidden="true"></div>
+      <div class="sc-copy sc-copy--lead" data-sc-cue="0 0.8 0">
+        <h1 style="font-family:var(--mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--sc-ink);font-weight:400;margin-bottom:1.1rem">Loxly Atkinson. Fifteen systems, live now.</h1>
+        <p class="sc-display sc-display--xl" style="margin:0 0 .8rem">Eden FM Platform</p>
+        <p class="hero-lbl">Eden FM &nbsp;&middot;&nbsp; Community radio and broadcast media &nbsp;&middot;&nbsp; <span class="is-live">Live</span></p>
+        <p style="margin-top:.9rem"><a class="ext" href="https://my.edenfm.co.za/" target="_blank" rel="noopener">my.edenfm.co.za</a> &nbsp;&nbsp; <a class="ext" href="work/eden-fm/">Open the object</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 SCHEMA, flow + in + reveal. Compressed: this is information. -->
+  <section class="sc-section" data-sc-act="flow" data-sc-span="1" data-sc-drift="#0E0B09" style="padding-block:clamp(3rem,7vw,5rem)">
+    <div class="wrap">
+      <div class="sc-stack measure" data-sc-in data-sc-stagger="70">
+        <span class="eyebrow">How to read this</span>
+        <p class="sc-display sc-display--md">Every object below carries the same five lines.</p>
+        <p class="sc-body">Who it was built for. What sector they are in. When it was built. One figure counted out of its own source. And whether it is running right now. Nothing on any label is persuasion, and no figure appears that I could not count. The ledger fills in as you pass each one, and every line in it is a status actually observed.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 THE COLLECTION, pan. This grammar's spine. -->
+  <section data-sc-act="pan" data-sc-span="3.6" data-sc-drift="#100C09">
+    <div data-sc-stage>
+      <div class="rail" data-sc-pan="0.05">
+        <div class="rail__lead">
+          <span class="eyebrow">The collection</span>
+          <p class="sc-display sc-display--md">9 objects.</p>
+          <p class="sc-body" style="font-size:.95rem">Each one has its own page: what it does, what was hard about it, and what it does not prove.</p>
+        </div>
+        
+      <article class="obj" data-led-host="naptosawc.co.za">
+        <div class="obj__img"><img src="assets/naptosa.webp" width="1800" height="1005" loading="lazy" alt="A low-key photograph of the kind of room this system runs in."></div>
+        <div class="obj__body">
+          <h3 class="obj__name"><a href="work/naptosa/">NAPTOSA Western Cape member platform</a></h3>
+          <dl class="lbl">
+            <dt>Client</dt><dd><b>NAPTOSA Western Cape</b></dd>
+            <dt>Sector</dt><dd>Trade union, education and member services</dd>
+            <dt>Built</dt><dd>June 2025 to present</dd>
+            <dt>Counted</dt><dd>956 commits on the main branch since june 2025</dd>
+            <dt>Status</dt><dd class="is-live">Live</dd>
+          </dl>
+          <div class="obj__foot"><a class="ext" href="https://naptosawc.co.za" target="_blank" rel="noopener">naptosawc.co.za</a></div>
+        </div>
+      </article>
+      <article class="obj" data-led-host="trio-data.co.za">
+        <div class="obj__img"><img src="assets/trio-data.webp" width="1800" height="1005" loading="lazy" alt="A low-key photograph of the kind of room this system runs in."></div>
+        <div class="obj__body">
+          <h3 class="obj__name"><a href="work/trio-data/">Trio Data Candidate Intelligence Platform</a></h3>
+          <dl class="lbl">
+            <dt>Client</dt><dd><b>Trio Data</b></dd>
+            <dt>Sector</dt><dd>Corporate intelligence and risk advisory</dd>
+            <dt>Built</dt><dd>June 2026 to present</dd>
+            <dt>Counted</dt><dd>240 api routes</dd>
+            <dt>Status</dt><dd class="">In production, private network</dd>
+          </dl>
+          <div class="obj__foot"><a class="ext" href="https://www.trio-data.co.za/careers.html" target="_blank" rel="noopener">trio-data.co.za/careers</a></div>
+        </div>
+      </article>
+      <article class="obj" data-led-host="kuilsriverdoctors.co.za">
+        <div class="obj__img"><img src="assets/kuils-river-doctors.webp" width="1800" height="1005" loading="lazy" alt="A low-key photograph of the kind of room this system runs in."></div>
+        <div class="obj__body">
+          <h3 class="obj__name"><a href="work/kuils-river-doctors/">Kuilsriver Doctors practice platform</a></h3>
+          <dl class="lbl">
+            <dt>Client</dt><dd><b>Kuilsriver Doctors</b></dd>
+            <dt>Sector</dt><dd>Healthcare, primary care</dd>
+            <dt>Built</dt><dd>March 2026 to June 2026</dd>
+            <dt>Counted</dt><dd>145 api endpoints</dd>
+            <dt>Status</dt><dd class="is-live">Live</dd>
+          </dl>
+          <div class="obj__foot"><a class="ext" href="https://kuilsriverdoctors.co.za/" target="_blank" rel="noopener">kuilsriverdoctors.co.za</a></div>
+        </div>
+      </article>
+      <article class="obj" data-led-host="">
+        <div class="obj__img"><img src="assets/sales-crm.webp" width="1800" height="1005" loading="lazy" alt="A low-key photograph of the kind of room this system runs in."></div>
+        <div class="obj__body">
+          <h3 class="obj__name"><a href="work/sales-crm/">Board-based CRM for a sales team</a></h3>
+          <dl class="lbl">
+            <dt>Client</dt><dd><b>A South African IT retailer (anonymised)</b></dd>
+            <dt>Sector</dt><dd>CRM, sales operations and task management</dd>
+            <dt>Built</dt><dd>June 2026 to September 2026</dd>
+            <dt>Counted</dt><dd>280 commits of my own work, 6 june to 4 september 2026</dd>
+            <dt>Status</dt><dd class="">In production, not publicly linked</dd>
+          </dl>
+          <div class="obj__foot"><a class="ext" href="work/sales-crm/" style="border-bottom-color:rgba(232,147,64,.35)">Open the object</a></div>
+        </div>
+      </article>
+      <article class="obj" data-led-host="pisaconsulting.com">
+        <div class="obj__img"><img src="assets/pisa-assessments.webp" width="1800" height="1005" loading="lazy" alt="A low-key photograph of the kind of room this system runs in."></div>
+        <div class="obj__body">
+          <h3 class="obj__name"><a href="work/pisa-assessments/">PISA Assessment Portal</a></h3>
+          <dl class="lbl">
+            <dt>Client</dt><dd><b>PISA Consulting</b></dd>
+            <dt>Sector</dt><dd>Leadership and executive coaching</dd>
+            <dt>Built</dt><dd>September 2026</dd>
+            <dt>Counted</dt><dd>250 instrument scoring rules transcribed verbatim, each with the source line it came from (85, 91 and 74)</dd>
+            <dt>Status</dt><dd class="is-live">Live</dd>
+          </dl>
+          <div class="obj__foot"><a class="ext" href="https://www.pisaconsulting.com/assessments" target="_blank" rel="noopener">www.pisaconsulting.com/assessments</a></div>
+        </div>
+      </article>
+      <article class="obj" data-led-host="omnimarketer.app">
+        <div class="obj__img"><img src="assets/omnimarketer.webp" width="1800" height="1005" loading="lazy" alt="A low-key photograph of the kind of room this system runs in."></div>
+        <div class="obj__body">
+          <h3 class="obj__name"><a href="work/omnimarketer/">OmniMarketer AI</a></h3>
+          <dl class="lbl">
+            <dt>Client</dt><dd><b>Partner collaboration, co-built product. Not a paid client engagement</b></dd>
+            <dt>Sector</dt><dd>B2B SaaS. CRM and marketing automation for South African SME service businesses</dd>
+            <dt>Built</dt><dd>2026 to present</dd>
+            <dt>Counted</dt><dd>86 supabase edge functions in the codebase</dd>
+            <dt>Status</dt><dd class="is-live">Live</dd>
+          </dl>
+          <div class="obj__foot"><a class="ext" href="https://omnimarketer.app/" target="_blank" rel="noopener">omnimarketer.app</a></div>
+        </div>
+      </article>
+      <article class="obj" data-led-host="smartaisolutions.co.za">
+        <div class="obj__img"><img src="assets/smart-ai-solutions.webp" width="1800" height="1005" loading="lazy" alt="A low-key photograph of the kind of room this system runs in."></div>
+        <div class="obj__body">
+          <h3 class="obj__name"><a href="work/smart-ai-solutions/">Smart AI Solutions</a></h3>
+          <dl class="lbl">
+            <dt>Client</dt><dd><b>Own practice, Smart AI Solutions</b></dd>
+            <dt>Sector</dt><dd>AI consultancy and automation, South Africa</dd>
+            <dt>Built</dt><dd>November 2025 to present</dd>
+            <dt>Counted</dt><dd>393 of 393 pages prerendered with 0 failures at the last recorded deploy</dd>
+            <dt>Status</dt><dd class="is-live">Live</dd>
+          </dl>
+          <div class="obj__foot"><a class="ext" href="https://www.smartaisolutions.co.za/" target="_blank" rel="noopener">smartaisolutions.co.za</a></div>
+        </div>
+      </article>
+      <article class="obj" data-led-host="centuryclub.co.za">
+        <div class="obj__img"><img src="assets/century-club.webp" width="1800" height="1005" loading="lazy" alt="A low-key photograph of the kind of room this system runs in."></div>
+        <div class="obj__body">
+          <h3 class="obj__name"><a href="work/century-club/">Century Club</a></h3>
+          <dl class="lbl">
+            <dt>Client</dt><dd><b>Century Club</b></dd>
+            <dt>Sector</dt><dd>Serviced apartments and short-stay hospitality, Century City, Cape Town</dd>
+            <dt>Built</dt><dd>March to August 2026</dd>
+            <dt>Counted</dt><dd>17 admin screens in the back office</dd>
+            <dt>Status</dt><dd class="is-live">Live</dd>
+          </dl>
+          <div class="obj__foot"><a class="ext" href="https://centuryclub.co.za/" target="_blank" rel="noopener">centuryclub.co.za</a></div>
+        </div>
+      </article>
+        <div class="rail__end">
+          <p class="sc-body" style="font-size:.95rem;color:var(--sc-ink-soft)">Six more live systems are in the ledger and not in this room. They were smaller jobs, and the label would be the same.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 SUBSTANCE, reveal + count. Real counted figures only. -->
+  <section class="sc-section" data-sc-act="flow" data-sc-span="1.4" data-sc-drift="#0E0B09">
+    <div class="wrap">
+      <div class="sc-stack" data-sc-in data-sc-stagger="60" style="margin-bottom:2rem">
+        <span class="eyebrow">Material</span>
+        <p class="sc-display sc-display--md measure">What the work is actually made of.</p>
+      </div>
+      <div class="facts">
+        <div><span class="n"><span data-sc-count="0 224">0</span></span><span class="l">Hand written Postgres migrations on one project</span><span class="s">counted in the migrations tree</span></div>
+        <div><span class="n"><span data-sc-count="0 35,653">0</span></span><span class="l">Lines of SQL, and no ORM anywhere</span><span class="s">wc over the same tree</span></div>
+        <div><span class="n"><span data-sc-count="0 237">0</span></span><span class="l">Row level security policies</span><span class="s">CREATE POLICY count</span></div>
+        <div><span class="n"><span data-sc-count="0 224">0</span></span><span class="l">Proof harnesses among 320 scripts on another</span><span class="s">counted in the scripts directory</span></div>
+        <div><span class="n"><span data-sc-count="0 1,723">0</span></span><span class="l">Written engineering post mortems across four projects</span><span class="s">755 plus 457 plus 306 plus 205</span></div>
+        <div><span class="n"><span data-sc-count="0 15">0</span></span><span class="l">Systems answering on the open internet today</span><span class="s">every one probed on 17 September 2026</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 SILENCE. Authored. Declared in BRIEF.md so verification grades it as
+       intentional rather than as dead scroll. -->
+  <section class="sc-section" data-sc-act="flow" data-sc-span="0.7" data-sc-drift="#080605" aria-hidden="true">
+    <div class="wrap" style="min-height:42vh;display:flex;align-items:center;justify-content:center">
+      <span style="display:block;width:3rem;height:1px;background:var(--hair)"></span>
+    </div>
+  </section>
+
+  <!-- 6 THE PEAK, pin. The ledger rail becomes the deploy gate.
+       Largest span on the page. Ground present, first cue greets. -->
+  <section id="gateAct" data-sc-act="pin" data-sc-span="3.4" data-sc-drift="#0B0907">
+    <div data-sc-stage style="display:flex;align-items:center">
+      <div class="wrap">
+        <div class="measure">
+          <span class="eyebrow" data-sc-cue="0 1 0 0">Deploying</span>
+          <p class="sc-display sc-display--lg" style="margin-top:1rem" data-sc-cue="0 0.30 0">One deploy reported success and left a ten day old homepage serving.</p>
+          <p class="sc-display sc-display--lg" style="margin-top:1rem" data-sc-cue="0.26 0.60">So now every gate names the failure it exists to prevent.</p>
+          <p class="sc-display sc-display--lg" style="margin-top:1rem" data-sc-cue="0.56 0.86">G21 fetches the live page and compares its bundle hash with what was just built.</p>
+          <p class="sc-body" style="margin-top:1.4rem;color:var(--refuse)" data-sc-cue="0.84 1 0.06 0">It refused. That is the pipeline working, and it has refused on a real run.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 BOUNDARIES, flow + in. Same label voice as the objects. -->
+  <section class="sc-section" data-sc-act="flow" data-sc-span="1" data-sc-drift="#0E0B09">
+    <div class="wrap">
+      <div class="sc-stack measure" data-sc-in data-sc-stagger="60" style="margin-bottom:1.6rem">
+        <span class="eyebrow">Boundaries</span>
+        <p class="sc-display sc-display--md">A portfolio is an argument, and an argument is only worth as much as the things it refuses to say. These are the boundaries.</p>
+      </div>
+      <div class="bounds measure">
+        <ul><li>I have no degree and no diploma. South Cape College certificates, then everything since has been self directed.</li><li>I have never managed engineers. The one people leadership role on my record was a commercial team at an ICT distributor, not a technical one.</li><li>Every client here is South African. I have not worked with a client in the UK, Europe, the Middle East, the Americas or APAC.</li><li>There are no usage figures, revenue figures, time saved figures or percentage improvements anywhere on this site, for any client, because none has been measured. One real usage number exists and it is on the Eden FM page.</li><li>There are no testimonials here. I do not have any on file, and I am not going to write my own.</li><li>No store, cart or checkout has shipped as a client case study. Sublify&#39;s commerce layer is built and currently parked. Its front end is live.</li></ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+</div>
+
+<!-- 8 CLOSE, pin. Inquiry plate typeset as a label. Cue holds, ground present. -->
+<section class="shift" data-sc-act="pin" data-sc-span="1.3" data-sc-drift="#100C09">
+  <div data-sc-stage style="display:flex;align-items:center;background:var(--sc-surface)">
+    <div class="wrap">
+      <div class="plate" data-sc-cue="0.05" data-sc-rise="0">
+        <img class="plate__face" src="assets/loxly.webp" width="440" height="440" alt="Loxly Atkinson">
+        <div>
+          <dl class="lbl" style="grid-template-columns:6.5rem 1fr;margin-bottom:1.2rem">
+            <dt>Name</dt><dd><b>Loxly Atkinson</b></dd>
+            <dt>Role</dt><dd>Independent AI systems builder, trading as Smart AI Solutions</dd>
+            <dt>Where</dt><dd>Cape Town, South Africa, UTC+2</dd>
+            <dt>Languages</dt><dd>English and Afrikaans, both fluent</dd>
+          </dl>
+          <p class="plate__line">Everything here is live and I will walk you through any of it.</p>
+          <div class="plate__links">
+            <a class="ext" href="mailto:loxly@smartaisolutions.co.za">loxly@smartaisolutions.co.za</a>
+            <a class="ext" href="https://linkedin.com/in/loxly-atkinson-b1132a125" target="_blank" rel="noopener">linkedin.com/in/loxly-atkinson</a>
+            <a class="ext" href="../index.html" style="color:var(--sc-ink-soft);border-bottom-color:var(--hair)">The plain version, with all the receipts</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <footer class="foot">
+    <span>Loxly Atkinson, Cape Town.</span>
+    <span><a href="index.html">The collection</a> &nbsp; <a href="../index.html">The plain version</a></span>
+  </footer>
+</div>
+<script src="scrollcraft.js"></script>
+<script>ScrollCraft.mount(document.body);</script>
+
+<script>
+(function () {
+  var led = document.getElementById('led');
+  if (!led) return;
+  var rows = {}, stamped = 0;
+  var listRows = led.querySelectorAll('.led__row');
+  listRows.forEach(function (r) { rows[r.dataset.host] = r; });
+  var nEl = document.getElementById('ledN');
+  var nowEl = document.getElementById('ledNow');
+
+  function stamp(host) {
+    var r = rows[host];
+    if (!r || r.classList.contains('is-stamped')) return;
+    r.classList.add('is-stamped');
+    stamped++;
+    if (nEl) nEl.textContent = stamped;
+    if (nowEl) nowEl.innerHTML = host + ' <b>200</b>';
+    led.setAttribute('data-sc-verify-state', 'stamped:' + stamped);
+  }
+
+  // Objects stamp their own ledger row as they arrive. Works with and without
+  // motion, because it is intersection, not scroll position.
+  var marks = document.querySelectorAll('[data-led-host]');
+  if ('IntersectionObserver' in window && marks.length) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { stamp(e.target.dataset.ledHost); io.unobserve(e.target); } });
+    }, { threshold: 0.35 });
+    marks.forEach(function (m) { io.observe(m); });
+  } else {
+    marks.forEach(function (m) { stamp(m.dataset.ledHost); });
+  }
+
+  // ---- the peak: the same rail becomes the deploy gate -------------------
+  var act = document.getElementById('gateAct');
+  if (!act) return;
+  var gateRows = Array.prototype.slice.call(document.querySelectorAll('.gate__row'));
+  var verdict = document.getElementById('gateVerdict');
+  var FAIL_AT = 22;
+  var running = false, raf = 0, lastState = '';
+
+  function paint(p) {
+    // gates run across the first 82% of the act, then the verdict holds
+    var t = Math.min(1, Math.max(0, p / 0.82));
+    var upto = Math.round(t * gateRows.length);
+    for (var i = 0; i < gateRows.length; i++) {
+      var on = i < upto;
+      gateRows[i].classList.toggle('is-on', on);
+      gateRows[i].classList.toggle('is-fail', on && i === FAIL_AT);
+      if (i === FAIL_AT) gateRows[i].querySelector('.gate__ok').textContent = on ? 'REFUSED' : 'ok';
+    }
+    var failed = upto > FAIL_AT;
+    if (verdict) verdict.classList.toggle('is-on', failed);
+    led.classList.toggle('is-gate', p > 0.01);
+    var s = failed ? 'gate:refused' : 'gate:' + upto;
+    if (s !== lastState) { led.setAttribute('data-sc-verify-state', s); lastState = s; }
+  }
+
+  function readP() {
+    var v = getComputedStyle(act).getPropertyValue('--sc-p');
+    var n = parseFloat(v);
+    return isNaN(n) ? 0 : n;
+  }
+
+  function loop() {
+    paint(readP());
+    if (running) raf = requestAnimationFrame(loop);
+  }
+
+  var io2 = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (e.isIntersecting && !running) { running = true; loop(); }
+      else if (!e.isIntersecting && running) {
+        running = false; cancelAnimationFrame(raf);
+        led.classList.remove('is-gate');
+        led.setAttribute('data-sc-verify-state', 'stamped:' + stamped);
+        lastState = '';
+      }
+    });
+  }, { threshold: 0 });
+  io2.observe(act);
+
+  // Reduced motion: no rAF, show the resolved end state when the act is reached.
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    io2.disconnect();
+    new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { led.classList.add('is-gate'); paint(1); } });
+    }, { threshold: 0.2 }).observe(act);
+  }
+})();
+</script>
+</body>
+</html>
