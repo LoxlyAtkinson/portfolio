@@ -1,0 +1,32 @@
+{
+  "project": "Loxly Atkinson - Personal Portfolio",
+  "repo": "https://github.com/LoxlyAtkinson/portfolio",
+  "githubAccount": "LoxlyAtkinson",
+  "live": {
+    "evidence": "https://loxlyatkinson.github.io/portfolio/",
+    "cinematic": "https://loxlyatkinson.github.io/portfolio/cinematic/"
+  },
+  "notebookLm": {
+    "notebookId": "43e287cd-f04b-4b30-83f3-474bce459e77",
+    "notebookTitle": "Loxly Atkinson - Personal Portfolio",
+    "notebookUrl": "https://notebooklm.google.com/notebook/43e287cd-f04b-4b30-83f3-474bce459e77",
+    "sessions": [
+      {
+        "session": 1,
+        "date": "2026-09-17",
+        "noteId": "82d0aa45",
+        "topic": "Evidence portfolio + cinematic scroll build",
+        "noteIdTruncated": true,
+        "noteTitle": "Session 1 (2026-09-17) - Portfolio + cinematic build, both live"
+      }
+    ],
+    "noteIdNote": "The nlm CLI table truncates IDs. Match by title if the full ID is needed: nlm note list <notebookId>"
+  },
+  "build": {
+    "render": "node build/render.mjs",
+    "renderCinematic": "node build/render-cinematic.mjs",
+    "gate": "node build/verify.mjs",
+    "previewPort": 4520
+  },
+  "notes": "Both renderers read content/. build/verify.mjs gates all 20 pages and must not be weakened to make copy fit."
+}

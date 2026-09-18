@@ -4,6 +4,7 @@ Thumbs.db
 *.log
 .atlas-consulted
 .playwright-mcp/
-.claude/
+.claude/uveg/
 lab/
 scrollcraft/builds/*/out/
+scrollcraft/builds/*/assets/
